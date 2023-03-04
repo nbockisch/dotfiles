@@ -1,0 +1,63 @@
+# Using Aquarium dark colors
+colors:
+  primary:
+    background:        &aquarium_bg '#1a1a24'
+    foreground:        '#63718B'
+    bright_foreground: '#a0a8b6'
+    dim_foreground:    '#4c5664'
+
+  cursor:
+    cursor: '#b8dceb'
+    text: '#20202a'
+
+  vi_mode_cursor:
+    cursor: '#E8CCA7'
+
+  bright:
+    black:   '#3b3b4d'
+    red:     '#cc9b9d'
+    green:   '#a3ccad'
+    yellow:  '#d1ba97'
+    blue:    '#B8C9EA'
+    magenta: '#c497b3'
+    cyan:    '#95C2D1'
+    white:   '#63718B'
+
+  normal:
+    black:   '#44495E'
+    red:     '#ebb9b9'
+    green:   '#caf6bb'
+    yellow:  '#ebe3b9'
+    blue:    '#cddbf9'
+    magenta: '#f6bbe7'
+    cyan:    '#b8dceb'
+    white:   '#C6D0E9'
+
+font:
+  normal:
+    family: Iosevka Nerd Font Mono
+    style: Regular
+
+  bold:
+    family: Iosevka Nerd Font Mono
+    style: Bold
+
+  italic:
+    family: Iosevka Nerd Font Mono
+    style: Italic
+
+  bold_italic:
+    family: Iosevka Nerd Font Mono
+    style: Bold Italic
+
+  size: 10
+
+window:
+  padding:
+    x: 15
+    y: 15
+
+cursor:
+  style:
+    shape: Underline
+    blinking: On

@@ -1,0 +1,67 @@
+# Quit bspwm
+super + shift + Escape
+  bspc quit
+
+# Restart bspwm
+super + r
+  bspc wm -r
+
+# Open power menu
+super + p
+  ~/.scripts/powermenu.sh
+
+# lockscreen
+alt + shift + x
+  betterlockscreen -l blur
+
+# Terminal emulator
+super + Return
+  alacritty
+
+# Kill window
+super + shift + q
+  bspc node -c
+
+# Switch to desktop
+super + {1-9, 0}
+  bspc desktop -f {1-9, 10}
+
+# Focus on window in direction
+super + {h,j,k,l}
+  bspc node -f {west,south,north,east}
+
+# Send window to desktop
+super + shift + {1-9, 0}
+  bspc node -d {1-9, 10}
+
+# Send window to desktop and swap to desktop
+super + control + {1-9, 0}
+  bspc node -d {1-9, 10} && bspc desktop -f {1-9, 10}
+
+# Toggle fullscreen
+super + f
+  bspc node focused.fullscreen -t tiled || bspc node focused.tiled -t fullscreen
+
+# Swap window with direction
+super + shift + {h,j,k,l}
+  bspc node -s {west,south,north,east}
+
+# Preselect window direction
+super + ctrl + {h,j,k,l}
+  bspc node -p {west,south,north,east}
+
+# Swap node with biggest node
+super + g
+  bspc node -s biggest.window
+
+# Swap node with smallest node
+super + s
+  bspc node -s smallest.window
+
+# Application launcher
+super + d
+  rofi -show drun
+
+# Quick window switch
+super + w
+  rofi -show window

@@ -1,0 +1,78 @@
+configuration {
+	display-drun: "Applications:";
+	display-window: "Windows:";
+	drun-display-format: "{icon} {name}";
+	modi: "window,run,drun";
+	font: "Iosevka Nerd Font Mono 14";
+	show-icons: true;
+	icon-theme: "Papirus";
+}
+
+@theme "/dev/null"
+
+* {
+	// Colors from the Aquarium color scheme
+	bg: #3d4059;
+	bg-prompt: #20202a;
+	bg-alt: #2c2e3e;
+	fg: #63718b;
+	fg-prompt: #cddbf9;
+	fg-alt: #a7b7d6;
+
+	background-color: @bg;
+
+	border: 0;
+	margin: 0;
+	padding: 0;
+	spacing: 0;
+}
+
+window {
+	width: 45%;
+	location: north;
+	y-offset: 49px; // attach to polybar
+}
+
+element {
+	padding: 12;
+	text-color: @fg;
+}
+
+element selected {
+	text-color: @fg-alt;
+	background-color: @bg-alt;
+}
+
+element-text {
+	background-color: inherit;
+	text-color: inherit;
+	vertical-align: 0.5;
+}
+
+element-icon {
+	size: 30;
+	background-color: inherit;
+}
+
+inputbar {
+	children: [prompt, entry];
+}
+
+listview {
+	background-color: @bg;
+	columns: 1;
+	lines: 8;
+}
+
+mainbox {
+	background-color: @bg;
+	children: [inputbar, listview];
+}
+
+prompt, entry {
+	background-color: @bg-prompt;
+	enabled: true;
+	padding: 12 0 12 12;
+	text-color: @fg-prompt;
+	vertical-align: 0.5;
+}
