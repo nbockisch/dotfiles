@@ -11,13 +11,13 @@ vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
 
 -- Navigate between nvim and tmux panes (requires the vim-tmux-navigator plugin
 -- in both nvim and tmux)
-vim.keymap.set('n', '<C-h>', ':TmuxNavigateLeft<cr>', {noremap = true,
+vim.keymap.set('n', '<C-h>', vim.cmd.TmuxNavigateLeft, {noremap = true,
   silent = true})
-vim.keymap.set('n', '<C-j>', ':TmuxNavigateDown<cr>', {noremap = true,
+vim.keymap.set('n', '<C-j>', vim.cmd.TmuxNavigateDown, {noremap = true,
   silent = true})
-vim.keymap.set('n', '<C-k>', ':TmuxNavigateUp<cr>', {noremap = true,
+vim.keymap.set('n', '<C-k>', vim.cmd.TmuxNavigateUp, {noremap = true,
   silent = true})
-vim.keymap.set('n', '<C-l>', ':TmuxNavigateRight<cr>', {noremap = true,
+vim.keymap.set('n', '<C-l>', vim.cmd.TmuxNavigateRight, {noremap = true,
   silent = true})
 
 --------------

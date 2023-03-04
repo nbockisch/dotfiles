@@ -9,7 +9,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"
 
 # Custom script path
 export PATH=$PATH:$HOME/.scripts/
@@ -80,6 +80,7 @@ alias tn='tmux new -s $(basename $(pwd))' # Name tmux session after current dir
 ##########
 
 # Bootstrap the git prompt script
+mkdir -p $BASH_HOME
 [[ -f $BASH_HOME/git-prompt.sh ]] || curl --http1.1 https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh --output $BASH_HOME/git-prompt.sh
 source $BASH_HOME/git-prompt.sh
 
