@@ -92,7 +92,7 @@ super + w
 
 # Screen brightness
 XF86MonBrightness{Up,Down}
-  xbacklight {-inc,-dec} 5
+  sudo brillo -q {-A,-U} 5
 
 # Audio
 XF86Audio{Raise,Lower}Volume

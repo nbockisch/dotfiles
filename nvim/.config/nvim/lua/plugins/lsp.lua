@@ -38,6 +38,9 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<c-n>'] = cmp.mapping.select_next_item(cmp_select),
   ['<c-y>'] = cmp.mapping.confirm({ select = true }),
   ['<c-space>'] = cmp.mapping.complete(),
+  ['<Tab>'] = vim.NIL,
+  ['<S-Tab>'] = vim.NIL,
+  ['<cr>'] = vim.NIL,
 })
 
 lsp.setup_nvim_cmp({
