@@ -85,37 +85,37 @@ mkdir -p $BASH_HOME
 source $BASH_HOME/git-prompt.sh
 
 # Colors
-FGBLACK='\e[30m'
-FGRED='\e[31m'
-FGGREEN='\e[32m'
-FGYELLOW='\e[33m'
-FGBLUE='\e[34m'
-FGMAGENTA='\e[35m'
-FGCYAN='\e[36m'
-FGWHITE='\e[37m'
-BGBLACK='\e[40m'
-BGRED='\e[41m'
-BGGREEN='\e[42m'
-BGYELLOW='\e[44m'
-BGBLUE='\e[44m'
-BGMAGENTA='\e[45m'
-BGCYAN='\e[46m'
-BGWHITE='\e[47m'
-BRIGHT_BLACK='\e[90m'
-BRIGHT_RED='\e[91m'
-BRIGHT_GREEN='\e[92m'
-BRIGHT_YELLOW='\e[93m'
-BRIGHT_BLUE='\e[94m'
-BRIGHT_MAGENTA='\e[95m'
-BRIGHT_CYAN='\e[96m'
-BRIGHT_WHITE='\e[97m'
-END='\e[0m'
+FGBLACK='\[\e[30m\]'
+FGRED='\[\e[31m\]'
+FGGREEN='\[\e[32m\]'
+FGYELLOW='\[\e[33m\]'
+FGBLUE='\[\e[34m\]'
+FGMAGENTA='\[\e[35m\]'
+FGCYAN='\[\e[36m\]'
+FGWHITE='\[\e[37m\]'
+BGBLACK='\[\e[40m\]'
+BGRED='\[\e[41m\]'
+BGGREEN='\[\e[42m\]'
+BGYELLOW='\[\e[44m\]'
+BGBLUE='\[\e[44m\]'
+BGMAGENTA='\[\e[45m\]'
+BGCYAN='\[\e[46m\]'
+BGWHITE='\[\e[47m\]'
+BRIGHT_BLACK='\[\e[90m\]'
+BRIGHT_RED='\[\e[91m\]'
+BRIGHT_GREEN='\[\e[92m\]'
+BRIGHT_YELLOW='\[\e[93m\]'
+BRIGHT_BLUE='\[\e[94m\]'
+BRIGHT_MAGENTA='\[\e[95m\]'
+BRIGHT_CYAN='\[\e[96m\]'
+BRIGHT_WHITE='\[\e[97m\]'
+END='\[\e[0m\]'
 
 get_git_branch() {
     echo '$(__git_ps1 " ( %s)")'
 }
 
-PS1="${FGGREEN}\u${END} ${FGBLACK}on${END} ${FGBLUE}\h${END} ${FGBLACK}in${END} ${FGYELLOW}\w${END}${FGRED}$(get_git_branch)${END}\n${FGYELLOW}󱞪\e${END} "
+PS1="${FGGREEN}\u${END} ${FGBLACK}on${END} ${FGBLUE}\h${END} ${FGBLACK}in${END} ${FGYELLOW}\w${END}${FGRED}$(get_git_branch)${END}\n${FGYELLOW}󱞪${END} "
 
 ###########
 # History #
