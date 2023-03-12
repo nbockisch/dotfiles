@@ -51,7 +51,7 @@ end
 vim.api.nvim_create_autocmd(
   {"BufEnter", "BufWinEnter"},
   {
-    pattern = {"*.lua"},
+    pattern = {"*.lua", "*.tex"},
     callback = function() changetabs(2) end,
   }
 )
