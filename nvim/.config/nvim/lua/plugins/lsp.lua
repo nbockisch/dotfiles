@@ -17,6 +17,7 @@ lsp.ensure_installed({
   'bashls',
   'clangd',
   'cssls',
+  'dockerls',
   'gopls',
   'html',
   'jdtls',
