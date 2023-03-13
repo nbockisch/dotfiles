@@ -43,6 +43,17 @@ local PKGS = {
   'frenzyexists/aquarium-vim';
   {'nvim-treesitter/nvim-treesitter', run = TSUpdate};
   'ap/vim-css-color'; -- highlight RGB colors
+
+  -- Git
+  'tpope/vim-fugitive';
+  'lewis6991/gitsigns.nvim';
+
+  -- Quality of Life
+  'tpope/vim-commentary'; -- Quick comments
+ -- Matching brace pairs
+  'tpope/vim-surround';
+  'jiangmiao/auto-pairs';
+  'tpope/vim-repeat'; -- Repeat matching brace pairs
 }
 
 -- Make sure paq is on system
