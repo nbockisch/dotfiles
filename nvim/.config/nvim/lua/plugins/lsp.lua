@@ -23,6 +23,7 @@ lsp.ensure_installed({
   'jdtls',
   'lemminx',
   'lua_ls',
+  'marksman',
   'pyright',
   'rust_analyzer',
   'texlab',

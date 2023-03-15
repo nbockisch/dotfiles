@@ -19,6 +19,7 @@ treesitter_configs.setup {
     'jsonc',
     'latex',
     'lua',
+    'markdown',
     'python',
     'rust',
     'typescript',
