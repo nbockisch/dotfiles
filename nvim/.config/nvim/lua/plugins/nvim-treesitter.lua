@@ -16,6 +16,7 @@ treesitter_configs.setup {
     'html',
     'java',
     'javascript',
+    'json',
     'jsonc',
     'latex',
     'lua',

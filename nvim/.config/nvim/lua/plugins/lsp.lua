@@ -25,6 +25,7 @@ lsp.ensure_installed({
   'lua_ls',
   'marksman',
   'pyright',
+  'rome',
   'rust_analyzer',
   'texlab',
   'tsserver',
