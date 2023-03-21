@@ -24,7 +24,6 @@ cmp.setup {
     { name = 'nvim_lua' },
     { name = 'nvim_lsp' },
     { name = 'path' },
-    { name = 'cmdline' },
     { name = 'buffer', keyword_length = 5 },
   },
 
@@ -55,3 +54,20 @@ cmp.setup {
     ghost_text = true,
   },
 }
+
+-- `:` cmdline setup.
+-- NOTE: Put cmdline source here. Putting it in global sources can cause autocmd
+-- errors! (https://github.com/hrsh7th/nvim-cmp/issues/1310)
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    {
+      name = 'cmdline',
+      option = {
+        ignore_cmds = { 'Man', '!' }
+      }
+    }
+  })
+})
