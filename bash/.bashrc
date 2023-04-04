@@ -115,7 +115,8 @@ get_git_branch() {
     echo '$(__git_ps1 " ( %s)")'
 }
 
-PS1="${FGGREEN}\u${END} ${FGBLACK}on${END} ${FGBLUE}\h${END} ${FGBLACK}in${END} ${FGYELLOW}\w${END}${FGRED}$(get_git_branch)${END}\n${FGYELLOW}󱞪${END} "
+#PS1="${FGGREEN}\u${END} ${FGBLACK}on${END} ${FGBLUE}\h${END} ${FGBLACK}in${END} ${FGYELLOW}\w${END}${FGRED}$(get_git_branch)${END}\r\n${FGYELLOW}󱞪${END} "
+PS1="${FGREEN}\u${END} ${FGBLACK}on${END} ${FGBLUE}\h${END} ${FGBLACK}in${END} ${FGYELLOW}\w${END}${FGRED}$(get_git_branch)${END}\r\n${FGYELLOW}>${END} "
 
 ###########
 # History #
