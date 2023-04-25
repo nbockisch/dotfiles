@@ -55,6 +55,7 @@ fi
 
 export BROWSER='firefox'
 export TERMINAL='alacritty'
+export TERM='alacritty'
 export EDITOR=$EDITOR
 export VISUAL=$EDITOR
 
