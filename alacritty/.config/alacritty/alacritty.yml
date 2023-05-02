@@ -56,6 +56,7 @@ window:
   padding:
     x: 15
     y: 15
+  option_as_alt: Both
 
 cursor:
   style:
