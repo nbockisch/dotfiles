@@ -55,9 +55,11 @@ fi
 
 export BROWSER='firefox'
 export TERMINAL='alacritty'
-export TERM='xterm'
+#export TERM='xterm'
 export EDITOR=$EDITOR
 export VISUAL=$EDITOR
+# So tmux-256color.src works on Mac (https://gpanders.com/blog/the-definitive-guide-to-using-tmux-256color-on-macos/)
+export TERMINFO_DIRS=$TERMINFO_DIRS:$HOME/.local/share/terminfo
 
 ###########
 # Aliases #
