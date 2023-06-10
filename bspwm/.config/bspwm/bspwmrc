@@ -21,6 +21,9 @@ bspc monitor -d 1 2 3 4 5 6 7 8 9 10
 # Show status bar
 killall polybar ; polybar main &
 
+# Improve launching time for firefox
+dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY &
+
 # Set wallpaper
 ~/.fehbg &
 
