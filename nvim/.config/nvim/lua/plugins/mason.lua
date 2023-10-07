@@ -39,7 +39,7 @@ mason_lsp.setup {
     'lua_ls',
     'marksman',
     'pyright',
-    'rome',
+    'biome',
     'rust_analyzer',
     'texlab',
     'tsserver',
