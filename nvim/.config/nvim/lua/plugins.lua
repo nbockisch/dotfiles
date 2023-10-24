@@ -16,7 +16,7 @@ local PKGS = {
 
   -- Navigation
   'nvim-telescope/telescope.nvim',
-  { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
   'christoomey/vim-tmux-navigator',
 
   -- Undoing

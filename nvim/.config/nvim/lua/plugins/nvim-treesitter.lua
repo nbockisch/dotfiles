@@ -12,7 +12,6 @@ treesitter_configs.setup {
     'cpp',
     'css',
     'go',
-    'help',
     'html',
     'java',
     'javascript',
