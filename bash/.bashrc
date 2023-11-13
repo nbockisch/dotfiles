@@ -40,6 +40,13 @@ bind -s 'set completion-ignore-case on'
 ####################
 
 BASH_HOME=$HOME/.config/bash
+CODE_HOME=~/dev/repos
+VENV_HOME=~/dev/venvs
+
+################
+# Default Apps #
+################
+
 EDITOR='nano'
 if [ -x "$(command -v nvim)" ]; then
     EDITOR='nvim'
@@ -48,11 +55,6 @@ elif [ -x "$(command -v vim)"]; then
 elif [ -x "$(command -v vi)"]; then
     EDITOR='vi'
 fi
-
-################
-# Default Apps #
-################
-
 export BROWSER='firefox'
 export TERMINAL='alacritty'
 #export TERM='xterm'
@@ -77,6 +79,24 @@ alias find=$([ -x "$(command -v fd)" ] && echo 'fd' || echo 'find')
 
 # Shortcuts
 alias tn='tmux new -s $(basename $(pwd))' # Name tmux session after current dir
+
+getProjectTmux() {
+    # Start a TMUX session in a project directory and activate the venv if present
+    PROJECT=$1
+    PROJECT_DIR=$CODE_HOME/$PROJECT
+
+    tmux new-session -c $PROJECT_DIR -d -s $PROJECT -n "CODE"
+
+    ACTIVATE_SCRIPT=$VENV_HOME/$PROJECT/bin/activate
+    if [[ -f $ACTIVATE_SCRIPT ]]; then
+        tmux send-keys -t ${PROJECT}:0 "source ${ACTIVATE_SCRIPT} && clear" C-m
+    fi
+
+    tmux attach-session -t $PROJECT
+
+}
+alias aat='getProjectTmux "archive"'
+alias ws='getProjectTmux "workspaces"'
 
 ##########
 # Prompt #

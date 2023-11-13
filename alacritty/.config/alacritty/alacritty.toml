@@ -36,7 +36,7 @@ blinking = "On"
 shape = "Underline"
 
 [font]
-size = 10
+size = 14
 
 [font.bold]
 family = "Iosevka Nerd Font Mono"
