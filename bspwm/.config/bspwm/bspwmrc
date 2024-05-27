@@ -37,7 +37,7 @@ bspc config presel_border_color     "#ebb9b9"
 bspc config border_width            2%
 bspc config window_gap              8%
 
-bspc config split_ratio             0.52
+bspc config split_ratio             0.5
 bspc config borderless_monocle      true
 bspc config gapless_monocle         true
 

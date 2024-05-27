@@ -14,6 +14,9 @@
 # Custom script path
 export PATH=$PATH:$HOME/.scripts/
 
+# Cargo installed packages
+export PATH=$PATH:$HOME/.cargo/bin/
+
 # Enable zoxide
 [ -x "$(command -v zoxide)" ] && eval "$(zoxide init bash)"
 
