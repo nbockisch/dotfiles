@@ -1,0 +1,110 @@
+---
+- name: Install and Configure Rice
+  hosts: ricehosts
+  become: true
+  remote_user: root
+  vars_files:
+    - vars
+  tasks:
+    - name: Install pacman apps
+      community.general.pacman:
+        name: '{{ pacman_packages }}'
+        state: present
+
+    - name: Install rustup via curl script
+      ansible.builtin.shell:
+        cmd: /usr/bin/curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+
+    - name: Ensure makepkg runs multithreaded
+      ansible.builtin.lineinfile:
+        path: /etc/makepkg.conf
+        regexp: '^#MAKEFLAGS='
+        line: MAKEFLAGS="-j$(nproc)"
+        state: present
+
+    - name: Create user for AUR installations
+      become: yes
+      ansible.builtin.user:
+        name: aur_builder
+        create_home: yes
+        group: wheel
+
+    - name: Give AUR user permissions to install AUR packages
+      become: yes
+      ansible.builtin.lineinfile:
+        path: /etc/sudoers.d/11-install-aur_builder
+        line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
+        create: yes
+        mode: 0644
+        validate: 'visudo -cf %s'
+
+    - name: Install AUR helper
+      kewlfft.aur.aur:
+        name:
+          - paru
+        use: auto
+        state: present
+      become: yes
+      become_user: aur_builder
+
+    - name: Install AUR apps
+      kewlfft.aur.aur:
+        name: '{{ aur_packages }}'
+        use: paru
+        state: present
+      become: yes
+      become_user: aur_builder
+
+    - name: Remove AUR user permissions
+      become: yes
+      ansible.builtin.file:
+        path: /etc/sudoers.d/11-install-aur_builder
+        state: absent
+
+    - name: Remove the AUR useer
+      ansible.builtin.user:
+        name: aur_builder
+        state: absent
+        remove: yes
+
+    - name: Enable bluetooth
+      ansible.builtin.service:
+        name: bluetooth
+        state: started
+        enabled: yes
+
+    - name: Ensure the wheel group exists
+      ansible.builtin.group:
+        name: wheel
+        state: present
+
+    - name: Give wheel passwordless sudo
+      ansible.builtin.lineinfile:
+        path: /etc/sudoers
+        regexp: '^%wheel'
+        line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+        state: present
+        validate: 'visudo -cf %s'
+
+    - name: Create user account(s)
+      ansible.builtin.user:
+        name: '{{ item }}'
+        shell: /bin/zsh
+        group: wheel
+        createhome: yes
+      with_items:
+        - '{{ users }}'
+
+    - name: Gather dotfiles
+      ansible.builtin.find:
+        paths: '{{ playbook_dir }}/dotfiles'
+        recurse: no
+        file_type: directory
+      register: dots
+
+    - name: Deploy dotfiles
+      become_user: '{{ item.0 }}'
+      ansible.builtin.shell: 'stow --target=${HOME} {{ item.1.path | basename }}'
+      args:
+        chdir: '{{ item.1.path | dirname }}'
+      loop: '{{ users | product(dots.files) }}'

@@ -1,0 +1,53 @@
+users:
+  - nathan
+
+pacman_packages:
+  - adwaita-icon-theme
+  - alsa-utils
+  - ansible
+  - bat
+  - bluez
+  - bluez-utils
+  - brightnessctl
+  - eza
+  - feh
+  - firefox
+  - ghostty
+  - git
+  - hyprland
+  - hyprlock
+  - hyprpaper
+  - k9s
+  - less
+  - man
+  - neovim
+  - networkmanager
+  - pavucontrol
+  - pipewire
+  - pipewire-alsa
+  - pipewire-audio
+  - pipewire-pulse
+  - playerctl
+  - python
+  - rofi-wayland
+  - sof-firmware
+  - stow
+  - swww
+  - tela-circle-icon-theme-black
+  - tmux
+  - ttf-firacode-nerd
+  - waybar
+  - wl-clipboard
+  - wlr-randr
+  - wofi
+  - xplr
+  - zoxide
+  - zsh
+
+aur_packages:
+  - freetube-bin
+  - networkmanager-dmenu-git
+  - rofi-bluetooth-git
+  - rofi-power-menu
+  - uwsm
+  - vesktop

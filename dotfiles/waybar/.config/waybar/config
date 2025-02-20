@@ -1,0 +1,112 @@
+{
+    // Z-position bar on top of windows
+    "layer": "top",
+    // Y-position bar at the top of the display
+    "position": "top",
+    // Margin for top, left, bottom, right in that order
+    "margin": "20 20 0 20",
+    // Live update bar style when style file updated
+    "reload_style_on_change": true,
+
+    "modules-left": ["clock"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["bluetooth", "network", "pulseaudio", "battery"],
+
+    "clock": {
+        "format": " {:%H:%M} 󰥔 ",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode"          : "year",
+            "mode-mon-col"  : 3,
+            "weeks-pos"     : "right",
+            "on-scroll"     : 1,
+            "format": {
+                "months":     "<span><b>{}</b></span>",
+                "days":       "<span><b>{}</b></span>",
+                "weeks":      "<span><b>W{}</b></span>",
+                "weekdays":   "<span><b>{}</b></span>",
+                "today":      "<span><b><u>{}</u></b></span>"
+            }
+        },
+        "actions":  {
+            "on-click-right": "mode",
+            "on-scroll-up": "tz_up",
+            "on-scroll-down": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+	"format-icons": {
+	    "active": "",
+	    "default": "",
+	    "empty": "",
+	    "persistent": "",
+	    "special": "",
+	    "urgent": ""
+	},
+        "persistent-workspaces": {
+            "*": [ 0, 1, 2, 3, 4, 5, 6 ]
+        }
+    },
+
+    "bluetooth": {
+    	"format": " 󰂯 {status} ",
+	"format-disabled": " 󰂲 {status} ",
+	"format-off": " 󰂲 {status} ",
+	"format-on": " 󰂯 {status} ",
+	"format-connected": " 󰂱 {device_alias} ",
+        "format-connected-battery": " 󰂱 {device_alias} {device_battery_percentage}% ",
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+	"on-click": "rofi-bluetooth"
+    },
+
+    "network": {
+    	"format": " 󰛳 {ifname} ",
+	"format-ethernet": " 󰈀 {ifname} ",
+	"format-wifi": " {icon} {essid} ",
+	"format-linked": " 󰈁 {ifname} ",
+	"format-disconnected": " 󰈂 {ifname} ",
+	"format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+	"on-click": "networkmanager_dmenu"
+    },
+
+    "pulseaudio": {
+    	"format": " {icon} {volume}% ",
+	"format-bluetooth": " {icon} {volume}% ",
+	"format-muted": " 󰝟 muted ",
+	"format-icons": {
+	    "default": ["󰕿", "󰖀", "󰕾"],
+	    "headphone": "󰋋",
+	    "speaker": "󰴸",
+	    "hdmi": "󰽟",
+	    "headset": "󰋎",
+	    "hands-free": "󱡏",
+	    "portable": "󰓃",
+	    "car": "󰄋",
+	    "hifi": "󰴸",
+	    "phone": "󰏲"
+	},
+        "on-click": "amixer sset Master toggle",
+        "on-click-right": "pavucontrol",
+        "tooltip-format": "{icon} {volume}%"
+    },
+
+    "battery": {
+    	"format": " {icon} {capacity}%",
+	"format-charging": " 󰂄 {capacity}%",
+        "format-plugged": " 󰂄 {capacity}%",
+	"format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+	"tooltip": true,
+	"tooltip-format": "{timeTo}",
+	"states": {
+	    "warning": 30,
+	    "critical": 15
+	}
+    }
+}

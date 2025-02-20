@@ -1,0 +1,112 @@
+@import "~/.config/colors/colors-rofi.rasi"
+
+configuration {
+    modes: "window,drun,run,ssh";
+    font: " FiraCode Nerd Font Mono 16";
+    show-icons: true;
+    terminal: "ghostty";
+    icon-theme: "Tela-circle-black-dark";
+    sort: true;
+    sorting-method: "fzf";
+    scroll-method: 1;
+  timeout {
+      action: "kb-cancel";
+      delay:  0;
+  }
+  filebrowser {
+      directories-first: true;
+      sorting-method:    "name";
+  }
+}
+
+* {
+    background-color: transparent;
+    transparent: rgba(0,0,0,0);
+}
+
+window {
+    background-color: @transparent-bg;
+    transparency: "real";
+    text-color: @fg;
+    border: 0;
+    border-radius: 16;
+    padding: 0.8em;
+    width: 30%;
+    height: 20%;
+}
+
+inputbar {
+    padding: 5px;
+    children: [entry];
+}
+
+entry {
+    text-color: @fg;
+    placeholder-color: @search;
+    cursor-color: @search;
+    placeholder: "Type to search...";
+}
+
+prompt,textbox-prompt-colon,case-indicator,num-rows,textbox-prompt-divider,num-filtered-rows,overlay {
+    enabled: false;
+}
+
+listview {
+    scrollbar: false;
+    columns: 1;
+    dynamic: true;
+    background: transparent;
+}
+
+element {
+    border: 0;
+}
+
+element.normal.normal {
+    background-color: @transparent;
+    text-color: @fg;
+}
+
+element.normal.urgent {
+    background-color: @transparent;
+    text-color: @error;
+}
+
+element.normal.active {
+    background-color: @transparent;
+    text-color: @warning;
+}
+
+element.alternate.normal {
+    background-color: @transparent;
+    text-color: @fg;
+}
+
+element.alternate.urgent {
+    background-color: @transparent;
+    text-color: @error;
+}
+
+element.alternate.active {
+    background-color: @transparent;
+    text-color: @warning;
+}
+
+element.selected.normal {
+    background-color: @keyword;
+    text-color: @fg;
+}
+
+element.selected.urgent {
+    background-color: @error;
+    text-color: @line;
+}
+
+element.selected.active {
+    background-color: @warning;
+    text-color: @line;
+}
+
+element-icon,element-text {
+    background-color: inherit;
+}

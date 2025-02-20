@@ -1,0 +1,145 @@
+@import "../colors/colors.css";
+* {
+    border: none;
+    font-size: 1em;
+    font-family: "FiraCode Nerd Font Mono";
+    min-height: 1.5em;
+}
+
+window#waybar {
+    background: transparent;
+    margin: 0.3em;
+    color: @fg;
+}
+
+.modules-left {
+    padding: 0 1em;
+    margin-top: 0.12em;
+}
+
+.modules-center {
+    padding: 0 1em;
+    margin-top: 0.12em;
+}
+
+.modules-right {
+    padding: 0 1em;
+    margin-top: 0.12em;
+}
+
+#bluetooth
+#network
+#pulseaudio {
+    padding: 0 0.3em;
+}
+
+#clock {
+    border-radius: 1em 1em 1em 1em;
+    background: @bg;
+    color: @fg;
+}
+
+#clock:hover {
+    background: @operator;
+    color: @fg;
+}
+
+
+#workspaces {
+    border-radius: 1em 1em 1em 1em;
+    background: @bg;
+}
+
+/*#workspaces button.active {*/
+/*    color: @type;*/
+/*}*/
+
+#workspaces button {
+    color: @fg;
+}
+
+/*#workspaces button.empty {*/
+/*    color: @operator;*/
+/*}*/
+
+#workspaces button.urgent {
+    color: @error;
+}
+
+#bluetooth {
+    border-radius: 1em 0 0 1em;
+    background: @bg;
+    color: @fg;
+}
+
+#bluetooth:hover {
+    background: @operator;
+    color: @fg;
+}
+
+#bluetooth.connected {
+    background: @plus;
+    color: @line;
+}
+
+#bluetooth.off {
+    background: @warning;
+    color: @line;
+}
+
+#bluetooth.disabled {
+    background: @error;
+    color: @line;
+}
+
+#network {
+    background: @bg;
+    color: @fg;
+}
+
+#network.disabled {
+    background: @error;
+    color: @line;
+}
+
+#network.disconnected {
+    background: @warning;
+    color: @line;
+}
+
+#network:hover {
+    background: @operator;
+    color: @fg;
+}
+
+#pulseaudio {
+    background: @bg;
+    color: @fg;
+}
+
+#pulseaudio.muted {
+    background: @warning;
+    color: @line;
+}
+
+#battery {
+    border-radius: 0 1em 1em 0;
+    padding-right: 0.6em;
+    background: @bg;
+    color: @fg;
+}
+
+#battery.warning {
+    background: @warning;
+    color: @line;
+}
+
+#battery.critical {
+    background: @error;
+    color: @line;
+}
+
+#battery.charging {
+    background: @plus;
+    color: @line;
+}
