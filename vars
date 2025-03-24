@@ -48,6 +48,7 @@ pacman_packages:
 aur_packages:
   - freetube-bin
   - networkmanager-dmenu-git
+  - python-pywalfox
   - rofi-bluetooth-git
   - rofi-power-menu
   - uwsm
