@@ -31,6 +31,7 @@ pacman_packages:
   - playerctl
   - python
   - sof-firmware
+  - starship
   - stow
   - swaync
   - swww
@@ -38,9 +39,9 @@ pacman_packages:
   - tmux
   - ttf-firacode-nerd
   - waybar
-  - wofi
   - wl-clipboard
   - wlr-randr
+  - wofi
   - xplr
   - zoxide
   - zsh
