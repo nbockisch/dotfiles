@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+
+# Modified from https://github.com/RiteshChepuri/wofi-scripts/blob/main/wofi-power-menu
+WOFI_COMMAND="wofi --show dmenu -n"
+UPTIME=$(uptime -p | cut -d' ' -f2-)
+
+SHUTDOWN=" Shutdown"
+REBOOT=" Reboot"
+LOCK=" Lock"
+SUSPEND=" Sleep"
+LOGOUT=" Logout"
+
+confirm_action() {
+    RESPONSE=$(echo -e "No\nYes" | $WOFI_COMMAND --prompt "Are you sure?")
+    [[ "$RESPONSE" == "Yes" ]]
+}
+
+open_menu() {
+    OPTIONS="$SHUTDOWN\n$REBOOT\n$SUSPEND\n$LOCK\n$LOGOUT"
+    CHOSEN=$(echo -e "$OPTIONS" | timeout 10s $WOFI_COMMAND --prompt "UP - $UPTIME")
+
+    [[ -z "$CHOSEN" ]] && exit 0
+
+    case $CHOSEN in
+        "$SHUTDOWN")
+            if confirm_action; then
+                notify-send "System is shutting down..."
+                sleep 2
+                systemctl poweroff
+            fi
+            ;;
+        "$REBOOT")
+            if confirm_action; then
+                notify-send "System is rebooting..."
+                sleep 2
+                systemctl reboot
+            fi
+            ;;
+        "$LOCK")
+            command -v hyprlock &>/dev/null && hyprlock
+            ;;
+        "$SLEEP")
+            BATTERY_PATH="/sys/class/power_supply/BAT0/capacity"
+            BATTERY_LEVEL=$(cat "$BATTERY_PATH" 2>/dev/null || echo 100)
+            if [[ "$BATTERY_LEVEL" -ge 5 ]]; then
+                command -v mpc &>/dev/null && mpc -q pause
+                    command -v pulsemixer &>/dev/null && pulsemixer --mute
+                    notify-send "System is suspending..."
+                    sleep 2
+                    systemctl suspend
+            else
+                notify-send "Battery too low to suspend!" "Charge your device first."
+                    fi
+                    ;;
+        "$LOGOUT")
+            if confirm_action; then
+                notify-send "Logging out..."
+                    sleep 2
+                    command -v hyprctl &>/dev/null && hyprctl dispatch exit 0
+                    fi
+                    ;;
+        esac
+}
+
+# Prevent multiple instances
+if pgrep -fx "wofi --show dmenu" > /dev/null; then
+    pkill -f "wofi --show dmenu"
+else
+    open_menu
+fi

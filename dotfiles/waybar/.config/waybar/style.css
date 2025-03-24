@@ -1,145 +1,172 @@
-@import "../colors/colors.css";
+@import url('../../.cache/wal/colors-waybar.css');
+
 * {
-    border: none;
-    font-size: 1em;
+    font-size:15px;
     font-family: "FiraCode Nerd Font Mono";
-    min-height: 1.5em;
 }
 
 window#waybar {
-    background: transparent;
-    margin: 0.3em;
-    color: @fg;
+    all: unset;
 }
 
 .modules-left {
-    padding: 0 1em;
-    margin-top: 0.12em;
+    padding: 7px;
+    margin: 10 0 5 10;
+    border-radius: 10px;
+    background: alpha(@background, .6);
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, .6);
 }
 
 .modules-center {
-    padding: 0 1em;
-    margin-top: 0.12em;
+    padding:7px;
+    margin:10 0 5 0;
+    border-radius:10px;
+    background: alpha(@background,.6);
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, .6);
 }
 
 .modules-right {
-    padding: 0 1em;
-    margin-top: 0.12em;
+    padding:7px;
+    margin: 10 10 5 0;
+    border-radius:10px;
+    background: alpha(@background,.6);
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, .6);
 }
 
-#bluetooth
-#network
-#pulseaudio {
-    padding: 0 0.3em;
+tooltip {
+    background:@background;
+    color: @color7;
 }
 
-#clock {
-    border-radius: 1em 1em 1em 1em;
-    background: @bg;
-    color: @fg;
+#custom-notification:hover, #clock:hover, #cpu:hover, #memory:hover, #temperature:hover #bluetooth:hover, #network:hover, #pulseaudio:hover {
+    transition: all .3s ease;
+    color: @color9;
 }
 
-#clock:hover {
-    background: @operator;
-    color: @fg;
+#custom-notification {
+    padding: 0px 5px;
+    transition: all .3s ease;
+    color: @color7;
 }
 
+#clock{
+    padding: 0px 5px;
+    color:@color7;
+    transition: all .3s ease;
+}
+
+#tray{
+    padding: 0px 5px;
+    transition: all .3s ease; 
+
+}
+#tray menu * {
+    padding: 0px 5px;
+    transition: all .3s ease; 
+}
+
+#tray menu separator {
+    padding: 0px 5px;
+    transition: all .3s ease; 
+}
 
 #workspaces {
-    border-radius: 1em 1em 1em 1em;
-    background: @bg;
+    padding: 0px 5px;
 }
-
-/*#workspaces button.active {*/
-/*    color: @type;*/
-/*}*/
 
 #workspaces button {
-    color: @fg;
+    all: unset;
+    padding: 0px 5px;
+    color: alpha(@color9, .4);
+    transition: all .2s ease;
 }
 
-/*#workspaces button.empty {*/
-/*    color: @operator;*/
-/*}*/
-
-#workspaces button.urgent {
-    color: @error;
+#workspaces button:hover {
+    color: rgba(0,0,0,0);
+    border: none;
+    text-shadow: 0px 0px 1.5px rgba(0, 0, 0, .5);
+    transition: all 1s ease;
 }
 
-#bluetooth {
-    border-radius: 1em 0 0 1em;
-    background: @bg;
-    color: @fg;
+#workspaces button.active {
+    color: @color9;
+    border: none;
+    text-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
 }
 
-#bluetooth:hover {
-    background: @operator;
-    color: @fg;
+#workspaces button.empty {
+    color: rgba(0,0,0,0);
+    border: none;
+    text-shadow: 0px 0px 1.5px rgba(0, 0, 0, .2);
 }
 
-#bluetooth.connected {
-    background: @plus;
-    color: @line;
+#workspaces button.empty:hover {
+    color: rgba(0,0,0,0);
+    border: none;
+    text-shadow: 0px 0px 1.5px rgba(0, 0, 0, .5);
+    transition: all 1s ease;
 }
 
-#bluetooth.off {
-    background: @warning;
-    color: @line;
+#workspaces button.empty.active {
+    color: @color9;
+    border: none;
+    text-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
 }
 
-#bluetooth.disabled {
-    background: @error;
-    color: @line;
+#group-expand{
+    padding: 0px 5px;
+    transition: all .3s ease; 
 }
 
-#network {
-    background: @bg;
-    color: @fg;
+#custom-expand{
+    padding: 0px 5px;
+    color:alpha(@foreground,.2);
+    text-shadow: 0px 0px 2px rgba(0, 0, 0, .7);
+    transition: all .3s ease; 
 }
 
-#network.disabled {
-    background: @error;
-    color: @line;
+#custom-expand:hover{
+    color:rgba(255,255,255,.2);
+    text-shadow: 0px 0px 2px rgba(255, 255, 255, .5);
 }
 
-#network.disconnected {
-    background: @warning;
-    color: @line;
+#cpu,#memory,#temperature{
+    padding: 0px 5px;
+    transition: all .3s ease; 
+    color: @color7;
 }
 
-#network:hover {
-    background: @operator;
-    color: @fg;
+#bluetooth{
+    padding: 0px 5px;
+    transition: all .3s ease;
+    color: @color7;
 }
 
-#pulseaudio {
-    background: @bg;
-    color: @fg;
+#network{
+    padding: 0px 5px;
+    transition: all .3s ease;
+    color: @color7;
 }
 
-#pulseaudio.muted {
-    background: @warning;
-    color: @line;
-}
-
-#battery {
-    border-radius: 0 1em 1em 0;
-    padding-right: 0.6em;
-    background: @bg;
-    color: @fg;
-}
-
-#battery.warning {
-    background: @warning;
-    color: @line;
-}
-
-#battery.critical {
-    background: @error;
-    color: @line;
+#battery{
+    padding: 0px 5px;
+    transition: all .3s ease;
+    color: @color7;
 }
 
 #battery.charging {
-    background: @plus;
-    color: @line;
+    color: #26A65B;
+}
+
+#battery.warning:not(.charging) {
+    color: #ffbe61;
+}
+
+#battery.critical:not(.charging) {
+    color: #f53c3c;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }

@@ -19,6 +19,7 @@ pacman_packages:
   - hyprpaper
   - k9s
   - less
+  - lightdm
   - man
   - neovim
   - networkmanager
@@ -29,17 +30,17 @@ pacman_packages:
   - pipewire-pulse
   - playerctl
   - python
-  - rofi-wayland
   - sof-firmware
   - stow
+  - swaync
   - swww
   - tela-circle-icon-theme-black
   - tmux
   - ttf-firacode-nerd
   - waybar
+  - wofi
   - wl-clipboard
   - wlr-randr
-  - wofi
   - xplr
   - zoxide
   - zsh

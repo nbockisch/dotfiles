@@ -4,7 +4,7 @@ HISTSIZE=5000
 SAVEHIST=1000
 setopt autocd extendedglob
 unsetopt beep
-bindkey -v
+#bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/nathan/.zshrc'
