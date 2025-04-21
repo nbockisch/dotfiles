@@ -12,12 +12,17 @@ pacman_packages:
   - eza
   - feh
   - firefox
+  - fzf
   - ghostty
   - git
+  - gnome-keyring
   - hyprland
   - hyprlock
   - hyprpaper
   - k9s
+  - kanshi
+  - kubectx
+  - lazygit
   - less
   - lightdm
   - man
@@ -43,11 +48,14 @@ pacman_packages:
   - wlr-randr
   - wofi
   - xplr
+  - zellij
   - zoxide
   - zsh
 
 aur_packages:
   - freetube-bin
+  - git-credential-manager-bin
+  - kubelogin
   - networkmanager-dmenu-git
   - python-pywalfox
   - rofi-bluetooth-git
