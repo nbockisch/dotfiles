@@ -10,6 +10,7 @@ pacman_packages:
   - bluez-utils
   - brightnessctl
   - docker
+  - docker-buildx
   - eza
   - feh
   - firefox
