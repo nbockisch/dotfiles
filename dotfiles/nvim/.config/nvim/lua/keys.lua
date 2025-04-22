@@ -56,3 +56,6 @@ vim.keymap.set('n', '<leader>cc', '"_cc', {noremap = true})
 
 vim.keymap.set('i', ';;', '<Esc>A;<Esc>', {noremap = true}) -- easy ; or , insertion
 vim.keymap.set('i', ',,', '<Esc>A,<Esc>', {noremap = true})
+
+-- File explorer
+vim.keymap.set('n', '<leader>pv', ':Oil<CR>', {noremap = true})
