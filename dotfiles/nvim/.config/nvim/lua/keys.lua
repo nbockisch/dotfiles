@@ -59,3 +59,11 @@ vim.keymap.set('i', ',,', '<Esc>A,<Esc>', {noremap = true})
 
 -- File explorer
 vim.keymap.set('n', '<leader>pv', ':Oil<CR>', {noremap = true})
+
+-- Fuzzy find
+vim.keymap.set('n', '<leader>ff', ':FzfLua files<CR>', {noremap = true})
+vim.keymap.set('n', '<leader>fg', ':FzfLua live_grep<CR>', {noremap = true})
+vim.keymap.set('n', '<leader>fc', ':FzfLua lgrep_curbuf<CR>', {noremap = true})
+vim.keymap.set('n', '<leader>fq', ':FzfLua quickfix<CR>', {noremap = true})
+vim.keymap.set('n', '<leader>fb', ':FzfLua buffers<CR>', {noremap = true})
+vim.keymap.set('n', '<leader>fb', ':FzfLua buffers<CR>', {noremap = true})
