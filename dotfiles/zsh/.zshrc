@@ -14,3 +14,6 @@ compinit
 # End of lines added by compinstall
 
 eval "$(starship init zsh)"
+
+# Default apps
+EDITOR="nvim"
