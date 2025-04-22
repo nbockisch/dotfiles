@@ -73,6 +73,12 @@
         state: started
         enabled: yes
 
+    - name: Enable docker
+      ansible.builtin.service:
+        name: docker
+        state: started
+        enabled: yes
+
         # - name: Enable login manager
         #   ansible.builtin.service:
         #     name: lightdm
@@ -95,7 +101,9 @@
       ansible.builtin.user:
         name: '{{ item }}'
         shell: /bin/zsh
-        group: wheel
+        groups:
+          - 'wheel'
+          - 'docker'
         createhome: yes
       with_items:
         - '{{ users }}'
