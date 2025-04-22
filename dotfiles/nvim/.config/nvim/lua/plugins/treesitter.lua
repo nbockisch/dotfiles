@@ -11,6 +11,7 @@ return {
             "c_sharp",
             "cpp",
             "dart",
+            "dockerfile",
             "java",
             "javascript",
             "json",
