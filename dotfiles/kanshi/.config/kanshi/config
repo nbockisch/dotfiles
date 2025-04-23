@@ -1,5 +1,10 @@
-profile docked {
+profile docked-hdmi {
     output "HDMI-A-1" enable position 0,0
+    output "eDP-1" disable
+}
+
+profile docked-dp {
+    output "DP-1" enable position 0,0
     output "eDP-1" disable
 }
 

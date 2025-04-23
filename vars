@@ -30,6 +30,7 @@ pacman_packages:
   - man
   - neovim
   - networkmanager
+  - nm-connection-editor
   - pavucontrol
   - pipewire
   - pipewire-alsa
