@@ -56,9 +56,10 @@ pacman_packages:
 
 aur_packages:
   - freetube-bin
-  - git-credential-manager-bin
+  - git-credential-manager
   - kubelogin
   - networkmanager-dmenu-git
+  - python-pywal16
   - python-pywalfox
   - rofi-bluetooth-git
   - rofi-power-menu
