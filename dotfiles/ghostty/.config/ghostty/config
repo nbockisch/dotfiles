@@ -1,5 +1,5 @@
 # Colors
-config-file = ~/.config/colors/colors-ghostty.conf
+config-file = ~/.cache/wal/colors-ghostty.conf
 
 font-family = "FiraCode Nerd Font Mono"
 window-decoration = false
