@@ -16,4 +16,9 @@ compinit
 eval "$(starship init zsh)"
 
 # Default apps
-EDITOR="nvim"
+export EDITOR="nvim"
+
+export GCM_CREDENTIAL_STORE="gpg"
+
+# Enable smart cd with zoxide
+eval "$(zoxide init zsh)"

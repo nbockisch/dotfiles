@@ -1,7 +1,0 @@
-on_force_close "detatch"
-
-simplified_ui "false"
-
-default_shell "zsh"
-
-pane_frames false

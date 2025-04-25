@@ -41,3 +41,6 @@ vim.opt.hlsearch = false -- don't leave matches highlighted
 vim.opt.ignorecase = true -- ignore case when searching
 vim.opt.smartcase = true -- ignore ignorecase if search pattern has capitals
 vim.opt.incsearch = true -- show where pattern matches while typing
+
+-- Copy with the system clipboard
+vim.opt.clipboard = "unnamedplus"

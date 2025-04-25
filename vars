@@ -51,7 +51,6 @@ pacman_packages:
   - wlr-randr
   - wofi
   - xplr
-  - zellij
   - zoxide
   - zsh
 
