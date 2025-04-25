@@ -11,11 +11,17 @@ vim.keymap.set('n', '<Down>', ':resize -2<CR>', {noremap = true})
 vim.keymap.set('n', '<Left>', ':vertical resize +2<CR>', {noremap = true})
 vim.keymap.set('n', '<Right>', ':vertical resize -2<CR>', {noremap = true})
 
--- Navigation
-vim.keymap.set('n', '<C-h>', '<C-w>h', {noremap = true})
-vim.keymap.set('n', '<C-j>', '<C-w>j', {noremap = true})
-vim.keymap.set('n', '<C-k>', '<C-w>k', {noremap = true})
-vim.keymap.set('n', '<C-l>', '<C-w>l', {noremap = true})
+-- Navigate between nvim and tmux panes (requires the vim-tmux-navigator plugin
+-- in both nvim and tmux)
+vim.keymap.set('n', '<C-h>', vim.cmd.TmuxNavigateLeft, {noremap = true,
+  silent = true})
+vim.keymap.set('n', '<C-j>', vim.cmd.TmuxNavigateDown, {noremap = true,
+  silent = true})
+vim.keymap.set('n', '<C-k>', vim.cmd.TmuxNavigateUp, {noremap = true,
+  silent = true})
+vim.keymap.set('n', '<C-l>', vim.cmd.TmuxNavigateRight, {noremap = true,
+  silent = true})
+
 
 -- navigate in insert mode
 vim.keymap.set('i', '<C-h>', '<Left>', {noremap = true})
