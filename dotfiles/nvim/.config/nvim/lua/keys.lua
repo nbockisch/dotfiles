@@ -1,6 +1,3 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = '\\'
-
 -- Tab vim.keymap.setings
 vim.keymap.set('n', '<Tab>', 'gt', {noremap = true})
 vim.keymap.set('n', '<S-Tab>', 'gT', {noremap = true})
@@ -67,3 +64,6 @@ vim.keymap.set('n', '<leader>fc', ':FzfLua lgrep_curbuf<CR>', {noremap = true})
 vim.keymap.set('n', '<leader>fq', ':FzfLua quickfix<CR>', {noremap = true})
 vim.keymap.set('n', '<leader>fb', ':FzfLua buffers<CR>', {noremap = true})
 vim.keymap.set('n', '<leader>fb', ':FzfLua buffers<CR>', {noremap = true})
+
+-- Git buffer integration
+vim.keymap.set('n', '<leader>hb', ':Gitsigns toggle_current_line_blame<CR>', {noremap = true})
