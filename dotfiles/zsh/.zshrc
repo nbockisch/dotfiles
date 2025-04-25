@@ -20,5 +20,8 @@ export EDITOR="nvim"
 
 export GCM_CREDENTIAL_STORE="gpg"
 
+# Aliases
+alias v="nvim"
+
 # Enable smart cd with zoxide
 eval "$(zoxide init zsh)"

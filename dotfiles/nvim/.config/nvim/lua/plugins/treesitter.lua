@@ -7,11 +7,13 @@ return {
 
       configs.setup({
           ensure_installed = {
+            "bash",
             "c",
             "c_sharp",
             "cpp",
             "dart",
             "dockerfile",
+            "go",
             "java",
             "javascript",
             "json",
