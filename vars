@@ -39,6 +39,8 @@ pacman_packages:
   - pipewire-pulse
   - playerctl
   - python
+  - python-virtualenv
+  - python-pip
   - sof-firmware
   - starship
   - stow
