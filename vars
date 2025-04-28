@@ -18,6 +18,7 @@ pacman_packages:
   - ghostty
   - git
   - gnome-keyring
+  - hypridle
   - hyprland
   - hyprlock
   - hyprpaper
@@ -55,7 +56,6 @@ pacman_packages:
   - zsh
 
 aur_packages:
-  - freetube-bin
   - git-credential-manager
   - kubelogin
   - networkmanager-dmenu-git

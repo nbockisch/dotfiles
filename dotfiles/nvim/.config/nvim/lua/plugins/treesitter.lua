@@ -4,6 +4,7 @@ return {
   event = { "BufReadPost", "BufNewFile" },
   opts = {
     ensure_installed = {
+      "angular",
       "bash",
       "c",
       "c_sharp",
@@ -19,6 +20,7 @@ return {
       "jsonnet",
       "lua",
       "make",
+      "markdown",
       "query",
       "rust",
       "typescript",

@@ -6,3 +6,4 @@ vim.g.maplocalleader = '\\'
 require('plugin-manager')
 require('keys')
 require('general')
+require('lsp')
