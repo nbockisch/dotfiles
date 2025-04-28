@@ -2,10 +2,26 @@
 -- file uses the native neovim lsp API to set up keybindings and behavior on
 -- buffer attach
 
+-- Icons for diagnostics
+vim.diagnostic.config({
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = '',
+      [vim.diagnostic.severity.WARN] = '',
+      [vim.diagnostic.severity.INFO] = '',
+      [vim.diagnostic.severity.HINT] = '',
+    },
+    linehl = {
+      [vim.diagnostic.severity.ERROR] = 'ErrorMsg',
+    },
+    numhl = {
+      [vim.diagnostic.severity.WARN] = 'WarningMsg',
+    },
+  }
+})
+
 -- Use a popup menu for autocompletion
 vim.opt.completeopt = { 'menuone', 'noselect', 'popup' }
-
--- 
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('my.lsp', {}),
