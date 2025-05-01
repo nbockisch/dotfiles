@@ -11,6 +11,7 @@ pacman_packages:
   - brightnessctl
   - docker
   - docker-buildx
+  - dotnet-sdk
   - eza
   - feh
   - firefox
