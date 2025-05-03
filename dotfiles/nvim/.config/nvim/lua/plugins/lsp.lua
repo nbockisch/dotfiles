@@ -28,6 +28,7 @@ return {
         "rust_analyzer",
         "snyk_ls",
         "sqlls",
+        "svelte",
         "terraformls",
         "ts_ls",
         "vimls",
@@ -43,7 +44,7 @@ return {
     'neovim/nvim-lspconfig',
     config = function()
       local lspconfig = require('lspconfig')
-      lspconfig.angularls.setup{}
+      lspconfig.angularls.setup {}
       lspconfig.ansiblels.setup {}
       lspconfig.ast_grep.setup {}
       lspconfig.bashls.setup {}
@@ -69,6 +70,7 @@ return {
       lspconfig.vimls.setup {}
       lspconfig.yamlls.setup {}
       lspconfig.zls.setup {}
+      lspconfig.svelte.setup {}
     end
   }
 }
