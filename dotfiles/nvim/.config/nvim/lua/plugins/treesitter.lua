@@ -21,6 +21,7 @@ return {
       "lua",
       "make",
       "markdown",
+      "python",
       "query",
       "rust",
       "typescript",

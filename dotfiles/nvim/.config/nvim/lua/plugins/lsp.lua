@@ -25,6 +25,7 @@ return {
         "jsonls",
         "lua_ls",
         "marksman",
+        "pyright",
         "rust_analyzer",
         "snyk_ls",
         "sqlls",
@@ -62,6 +63,7 @@ return {
       lspconfig.jsonls.setup {}
       lspconfig.lua_ls.setup {}
       lspconfig.marksman.setup {}
+      lspconfig.pyright.setup {}
       lspconfig.rust_analyzer.setup {}
       lspconfig.snyk_ls.setup {}
       lspconfig.sqlls.setup {}
