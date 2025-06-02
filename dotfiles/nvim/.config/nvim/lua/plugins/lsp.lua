@@ -27,7 +27,6 @@ return {
         "marksman",
         "pyright",
         "rust_analyzer",
-        "snyk_ls",
         "sqlls",
         "svelte",
         "terraformls",
