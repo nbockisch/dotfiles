@@ -1,0 +1,49 @@
+- name: Create user for AUR installations
+  become: yes
+  ansible.builtin.user:
+    name: aur_builder
+    create_home: yes
+    group: wheel
+  when: ansible_facts['distribution'] == 'Archlinux'
+
+- name: Give AUR user permissions to install AUR packages
+  become: yes
+  ansible.builtin.lineinfile:
+    path: /etc/sudoers.d/11-install-aur_builder
+    line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
+    create: yes
+    mode: 0644
+    validate: 'visudo -cf %s'
+  when: ansible_facts['distribution'] == 'Archlinux'
+
+- name: Install AUR helper
+  kewlfft.aur.aur:
+    name:
+      - paru
+    use: auto
+    state: present
+  become: yes
+  become_user: aur_builder
+  when: ansible_facts['distribution'] == 'Archlinux'
+
+- name: Remove AUR user permissions
+  become: yes
+  ansible.builtin.file:
+    path: /etc/sudoers.d/11-install-aur_builder
+    state: absent
+  when: ansible_facts['distribution'] == 'Archlinux'
+
+- name: Remove the AUR user
+  ansible.builtin.user:
+    name: aur_builder
+    state: absent
+    remove: yes
+  when: ansible_facts['distribution'] == 'Archlinux'
+
+- name: Install common Arch packages
+  community.general.pacman:
+    name:
+      - man
+      - tmux
+    state: present
+  when: ansible_facts['distribution'] == 'Archlinux'

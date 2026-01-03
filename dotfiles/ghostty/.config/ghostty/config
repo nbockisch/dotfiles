@@ -1,8 +1,0 @@
-# Colors
-config-file = ~/.cache/wal/colors-ghostty.conf
-
-font-family = "FiraCode Nerd Font Mono"
-window-decoration = false
-window-padding-x = 20
-window-padding-y = 20
-window-padding-balance = true

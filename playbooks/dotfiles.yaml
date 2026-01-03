@@ -1,0 +1,9 @@
+---
+- name: Apply Dotfiles
+  hosts: targets
+  remote_user: root
+  gather_facts: true
+  roles:
+    - common
+    - niri
+    - tmux
