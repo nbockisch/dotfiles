@@ -7,7 +7,6 @@
   when: ansible_facts['distribution'] == 'Archlinux'
 
 - name: Give AUR user permissions to install AUR packages
-  become: yes
   ansible.builtin.lineinfile:
     path: /etc/sudoers.d/11-install-aur_builder
     line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
@@ -26,19 +25,19 @@
   become_user: aur_builder
   when: ansible_facts['distribution'] == 'Archlinux'
 
-- name: Remove AUR user permissions
-  become: yes
-  ansible.builtin.file:
-    path: /etc/sudoers.d/11-install-aur_builder
-    state: absent
-  when: ansible_facts['distribution'] == 'Archlinux'
+# - name: Remove AUR user permissions
+#   become: yes
+#   ansible.builtin.file:
+#     path: /etc/sudoers.d/11-install-aur_builder
+#     state: absent
+#   when: ansible_facts['distribution'] == 'Archlinux'
 
-- name: Remove the AUR user
-  ansible.builtin.user:
-    name: aur_builder
-    state: absent
-    remove: yes
-  when: ansible_facts['distribution'] == 'Archlinux'
+# - name: Remove the AUR user
+#   ansible.builtin.user:
+#     name: aur_builder
+#     state: absent
+#     remove: yes
+#   when: ansible_facts['distribution'] == 'Archlinux'
 
 - name: Install common Arch packages
   community.general.pacman:

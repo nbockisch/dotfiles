@@ -1,13 +1,15 @@
-- name: Install Arch packages
-  community.general.pacman:
-    name:
-      - neovim
+- name: Install Arch AUR packages
+  kewlfft.aur.aur:
+    name: neovim-git
+    use: paru
     state: present
+  become: yes
+  become_user: aur_builder
   when: ansible_facts['distribution'] == 'Archlinux'
 
 - name: Apply Neovim config
   ansible.builtin.shell: 'stow --target=${HOME} neovim'
   args:
     chdir: '{{ playbook_dir }}/../dotfiles'
-  become: true
+  become: yes
   become_user: '{{ user }}'

@@ -3,7 +3,10 @@
   hosts: targets
   remote_user: root
   gather_facts: true
-  roles:
+  roles: # Uncomment the apps you want to install/configure
     - common
+    - fuzzel
+    - ghostty
     - niri
+    - neovim
     - tmux
