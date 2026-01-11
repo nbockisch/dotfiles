@@ -5,6 +5,7 @@
   gather_facts: true
   roles: # Uncomment the apps you want to install/configure
     - common
+    - wallpapers
     - fuzzel
     - ghostty
     - niri

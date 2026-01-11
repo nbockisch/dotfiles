@@ -46,5 +46,7 @@
       - man
       - sudo
       - tmux
+      - wlr-randr
+      - feh
     state: present
   when: ansible_facts['distribution'] == 'Archlinux'

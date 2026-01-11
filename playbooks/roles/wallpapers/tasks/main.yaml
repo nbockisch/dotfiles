@@ -1,0 +1,29 @@
+- name: Install AUR wallpaper dependencies
+  kewlfft.aur.aur:
+    name:
+      - wallust
+    state: present
+  become: yes
+  become_user: aur_builder
+  when: ansible_facts['distribution'] == 'Archlinux'
+
+- name: Copy wallpapers
+  ansible.builtin.shell: 'stow --target=${HOME} wallpapers'
+  args:
+    chdir: '{{ playbook_dir }}/..'
+  become: yes
+  become_user: '{{ user }}'
+
+- name: Copy wallpaper setting script
+  ansible.builtin.shell: 'stow --target=${HOME} wallpaper-setter'
+  args:
+    chdir: '{{ playbook_dir }}/../scripts'
+  become: yes
+  become_user: '{{ user }}'
+
+- name: Make the wallpaper setting script executable
+  ansible.builtin.file:
+    path: ~/scripts/wallpaper-setter.sh
+    mode: a+x
+  become: yes
+  become_user: '{{ user }}'
