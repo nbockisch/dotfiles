@@ -1,4 +1,4 @@
-dotfiles/nvim/.config/nvim/undodir/
-dotfiles/nvim/.config/nvim/lazy-lock.json
+dotfiles/neovim/.config/nvim/undodir/
+dotfiles/neovim/.config/nvim/nvim-pack-lock.json
 dotfiles/tmux/.config/tmux/plugins/
 backup/

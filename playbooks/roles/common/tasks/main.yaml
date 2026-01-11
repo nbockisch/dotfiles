@@ -42,7 +42,9 @@
 - name: Install common Arch packages
   community.general.pacman:
     name:
+      - git
       - man
+      - sudo
       - tmux
     state: present
   when: ansible_facts['distribution'] == 'Archlinux'
