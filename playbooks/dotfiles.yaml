@@ -6,6 +6,7 @@
   roles: # Uncomment the apps you want to install/configure
     - common
     - wallpapers
+    - wofi
     - fuzzel
     - ghostty
     - niri

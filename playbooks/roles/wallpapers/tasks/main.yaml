@@ -7,6 +7,12 @@
   become_user: aur_builder
   when: ansible_facts['distribution'] == 'Archlinux'
 
+- name: Install Arch dependencies
+  community.general.pacman:
+    name: swaybg
+    state: present
+  when: ansible_facts['distribution'] == 'Archlinux'
+
 - name: Copy wallpapers
   ansible.builtin.shell: 'stow --target=${HOME} wallpapers'
   args:
@@ -26,4 +32,11 @@
     path: ~/scripts/wallpaper-setter.sh
     mode: a+x
   become: yes
+  become_user: '{{ user }}'
+
+- name: Apply Wallust config
+  ansible.builtin.shell: 'stow --target=${HOME} wallust'
+  args:
+    chdir: '{{ playbook_dir }}/../dotfiles'
+  become: true
   become_user: '{{ user }}'

@@ -1,0 +1,12 @@
+- name: Install Arch packages
+  community.general.pacman:
+    name: wofi
+    state: present
+  when: ansible_facts['distribution'] == 'Archlinux'
+
+- name: Apply Wofi config
+  ansible.builtin.shell: 'stow --target=${HOME} wofi'
+  args:
+    chdir: '{{ playbook_dir }}/../dotfiles'
+  become: true
+  become_user: '{{ user }}'
