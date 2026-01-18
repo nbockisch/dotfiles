@@ -2,7 +2,7 @@
   community.general.pacman:
     name:
       - bash-language-server
-      - bat -- Used by fzf search native profile
+      - bat
       - ccls
       - deno
       - fzf
