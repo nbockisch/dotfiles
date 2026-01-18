@@ -2,8 +2,10 @@
   community.general.pacman:
     name:
       - bash-language-server
+      - bat -- Used by fzf search native profile
       - ccls
       - deno
+      - fzf
       - go
       - gopls
       - lua-language-server

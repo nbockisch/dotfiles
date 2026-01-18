@@ -1,3 +1,5 @@
+vim.g.mapleader = ' '
+
 -- Tab vim.keymap.setings
 vim.keymap.set('n', '<Tab>', 'gt', {noremap = true})
 vim.keymap.set('n', '<S-Tab>', 'gT', {noremap = true})
@@ -64,12 +66,14 @@ vim.keymap.set('i', ',,', '<Esc>A,<Esc>', {noremap = true})
 vim.keymap.set('n', '<leader>pv', ':Oil<CR>', {noremap = true})
 
 -- Fuzzy find
-vim.keymap.set('n', '<leader>ff', ':FzfLua files<CR>', {noremap = true})
-vim.keymap.set('n', '<leader>fg', ':FzfLua live_grep<CR>', {noremap = true})
-vim.keymap.set('n', '<leader>fc', ':FzfLua lgrep_curbuf<CR>', {noremap = true})
-vim.keymap.set('n', '<leader>fq', ':FzfLua quickfix<CR>', {noremap = true})
-vim.keymap.set('n', '<leader>fb', ':FzfLua buffers<CR>', {noremap = true})
-vim.keymap.set('n', '<leader>fb', ':FzfLua buffers<CR>', {noremap = true})
+vim.keymap.set('n', '<leader>ff', ':lua FzfLua.files({ resume = true })<CR>', {noremap = true})
+vim.keymap.set('n', '<leader>fg', ':lua FzfLua.live_grep({ resume = true })<CR>', {noremap = true})
+vim.keymap.set('n', '<leader>fc', ':lua FzfLua.lgrep_curbuf({ resume = true })<CR>', {noremap = true})
+vim.keymap.set('n', '<leader>fq', ':lua FzfLua.quickfix({ resume = true })<CR>', {noremap = true})
+vim.keymap.set('n', '<leader>fb', ':lua FzfLua.buffers({ resume = true })<CR>', {noremap = true})
+vim.keymap.set({ "n", "v", "i" }, "<C-x><C-f>",
+  function() FzfLua.complete_path() end,
+  { silent = true, desc = "Fuzzy complete path" })
 
 -- Git buffer integration
 vim.keymap.set('n', '<leader>hb', ':Gitsigns toggle_current_line_blame<CR>', {noremap = true})

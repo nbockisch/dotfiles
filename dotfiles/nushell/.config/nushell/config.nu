@@ -17,3 +17,5 @@
 # options using:
 #     config nu --doc | nu-highlight | less -R
 $env.config.buffer_editor = 'nvim'
+
+alias v = nvim
