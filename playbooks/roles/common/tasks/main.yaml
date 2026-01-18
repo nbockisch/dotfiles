@@ -42,6 +42,8 @@
 - name: Install common Arch packages
   community.general.pacman:
     name:
+      - bat
+      - eza
       - git
       - man
       - sudo
