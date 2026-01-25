@@ -49,5 +49,6 @@
       - sudo
       - tmux
       - wlr-randr
+      - ttf-firacode-nerd
     state: present
   when: ansible_facts['distribution'] == 'Archlinux'

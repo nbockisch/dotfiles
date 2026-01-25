@@ -1,6 +1,8 @@
 - name: Install Arch packages
   community.general.pacman:
-    name: waybar
+    name:
+      - alsa-utils
+      - waybar
     state: present
   when: ansible_facts['distribution'] == 'Archlinux'
 

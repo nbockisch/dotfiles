@@ -7,7 +7,7 @@
         "reload_style_on_change": true,
 
         "modules-left": ["custom/notification", "clock", "tray"],
-        "modules-center": ["hyprland/workspaces"],
+        "modules-center": ["niri/workspaces"],
         "modules-right": ["group/expand", "bluetooth", "network", "pulseaudio", "battery"],
 
         "custom/notification": {
@@ -37,7 +37,7 @@
             "spacing": 10
         },
 
-        "hyprland/workspaces": {
+        "niri/workspaces": {
             "format": "{icon}",
             "format-icons": {
                 "active": "",
