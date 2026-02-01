@@ -1,4 +1,4 @@
-@import url("../.config/wofi/colors.css");
+@import url("colors.css");
 
 @keyframes fadeIn {
     0% {
@@ -15,9 +15,9 @@
     outline: none;
     border: none;
     text-shadow: 5px;
-    background-color: transparent;
+    background-color: @background;
     animation-name: fadeIn;
-    animation-duration: 0.5s;
+    animation-duration: 0.2s;
 }
 
 #window {
