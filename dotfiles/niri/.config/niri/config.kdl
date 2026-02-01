@@ -274,6 +274,9 @@ spawn-at-startup "swaync"
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
+spawn-sh-at-startup "wallust run ~/pictures/wallpapers/current"
+spawn-sh-at-startup "swaybg -m fill -i ~/pictures/wallpapers/current"
+
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
     // skip-at-startup
@@ -364,8 +367,8 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "ghostty"; }
-    Mod+D hotkey-overlay-title="Run an Application: wofi" { spawn-sh "wofi --show drun"; }
-    Mod+W hotkey-overlay-title="Select a Wallpaper: wofi" { spawn-sh "sh ~/scripts/wallpaper-setter.sh"; }
+    Mod+D hotkey-overlay-title="Run an Application: wofi" { spawn-sh "wofi --style /home/nathan/.config/wofi/style.css --show drun"; }
+    Mod+W hotkey-overlay-title="Select a Wallpaper: wofi" { spawn-sh "sh /home/nathan/scripts/wallpaper-setter.sh"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.

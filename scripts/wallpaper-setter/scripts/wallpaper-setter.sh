@@ -7,10 +7,11 @@ menu() {
 }
 
 main() {
-    choice=$(menu | wofi --show dmenu --prompt "Select Wallpaper:" -n)
+    choice=$(menu | wofi --style /home/nathan/.config/wofi/style.css --show dmenu --prompt "Select Wallpaper:" -n)
     selected_wallpaper=$(echo "$choice" | sed 's/^img://')
-    wallust run $selected_wallpaper
-    swaybg -m fill -i $selected_wallpaper
+    cp $selected_wallpaper $WALLPAPER_DIR/current
+    wallust run $WALLPAPER_DIR/current
+    swaybg -m fill -i $WALLPAPER_DIR/current
 }
 
 main
