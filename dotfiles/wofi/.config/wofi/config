@@ -3,6 +3,7 @@ allow_images=true
 allow_markup=true
 prompt=Select an Application
 hide_scroll=true
+no_actions=true
 
 width=40%
 height=60%
@@ -19,3 +20,6 @@ print_command=true
 columns=4
 image_size=150
 layer=overlay
+
+key_up=Ctrl-p
+key_down=Ctrl-n

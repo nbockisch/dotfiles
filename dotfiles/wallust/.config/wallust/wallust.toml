@@ -46,4 +46,4 @@ palette = "dark"
 # zathura = { template = 'zathura', target = '~/.config/zathura/zathurarc' }
 neopywal = { template = 'colors_neopywal.vim', target = '~/.cache/wallust/colors_neopywal.vim' }
 waybar = { template = 'colors.css', target = '~/.config/waybar/colors.css' }
-wofi = { template = 'colors.css', target = '~/dotfiles/wofi/.config/wofi/colors.css' }
+wofi = { template = 'colors.css', target = '~/.config/wofi/colors.css' }
