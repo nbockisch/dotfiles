@@ -13,7 +13,7 @@ main() {
 
     # Only set the color scheme and cache the wallpaper if one was selected
     if [[ -n $selected_wallpaper ]]; then
-        cp $selected_wallpaper $WALLPAPER_DIR/current
+        ln -sfn $selected_wallpaper $WALLPAPER_DIR/current
         wallust run $WALLPAPER_DIR/current
         swaybg -m fill -i $WALLPAPER_DIR/current
         makoctl reload

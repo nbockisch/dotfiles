@@ -49,3 +49,4 @@ neopywal = { template = 'colors_neopywal.vim', target = '~/.cache/wallust/colors
 waybar = { template = 'colors.css', target = '~/.config/waybar/colors.css' }
 wofi = { template = 'colors.css', target = '~/.config/wofi/colors.css' }
 mako = { template = 'mako_colors.conf', target = '~/.config/mako/colors.conf' }
+hypr = { template = 'colors_hypr.conf', target = '~/.config/hypr/colors.conf' }
