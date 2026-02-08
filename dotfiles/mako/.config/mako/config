@@ -10,4 +10,4 @@ padding=20,10
 
 default-timeout=3000
 
-on-notify=exec makoctl menu wofi -d -p 'Choose Action: '
+on-notify=exec makoctl menu -- wofi -d -p 'Choose Action: '
