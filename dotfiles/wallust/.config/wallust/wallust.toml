@@ -44,6 +44,7 @@ palette = "dark"
 # target: ABSOLUTE path in which to place a file with generated templated values.
 # ¡ If either one is a directory, then both SHOULD be one. !
 # zathura = { template = 'zathura', target = '~/.config/zathura/zathurarc' }
+ghostty = { template = 'colors_ghostty.conf', target = '~/.config/ghostty/colors_ghostty.conf' }
 neopywal = { template = 'colors_neopywal.vim', target = '~/.cache/wallust/colors_neopywal.vim' }
 waybar = { template = 'colors.css', target = '~/.config/waybar/colors.css' }
 wofi = { template = 'colors.css', target = '~/.config/wofi/colors.css' }
