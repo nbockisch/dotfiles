@@ -1,0 +1,27 @@
+- name: Install Arch packages
+  community.general.pacman:
+    name: mako
+    state: present
+  when: ansible_facts['distribution'] == 'Archlinux'
+
+# - name: Apply Mako config
+#   ansible.builtin.shell: 'stow --target=${HOME} mako'
+#   args:
+#     chdir: '{{ playbook_dir }}/../dotfiles'
+#   become: true
+#   become_user: '{{ user }}'
+#
+# # - name: Copy mako systemd service file
+# #   ansible.builtin.copy:
+# #     src: swaync.service
+# #     dest: /etc/systemd/system/swaync.service
+# #     owner: root
+# #     group: root
+# #     mode: '0777'
+#
+# - name: Enable the swaync service
+#   ansible.builtin.service:
+#     daemon_reload: true
+#     enabled: true
+#     name: swaync
+#     state: started

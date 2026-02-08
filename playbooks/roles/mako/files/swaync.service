@@ -1,0 +1,11 @@
+[Unit]
+Description=Start the swaync daemon
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/swaync
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

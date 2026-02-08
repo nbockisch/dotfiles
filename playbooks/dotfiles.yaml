@@ -10,8 +10,9 @@
     - wofi
     - fuzzel
     - ghostty
+    - mako
     - niri
     - neovim
     - nushell
-    - swaync
+    # - swaync
     - tmux

@@ -6,7 +6,7 @@
     state: present
   when: ansible_facts['distribution'] == 'Archlinux'
 
-- name: Apply Waybar config
+- name: Apply swaync config
   ansible.builtin.shell: 'stow --target=${HOME} swaync'
   args:
     chdir: '{{ playbook_dir }}/../dotfiles'

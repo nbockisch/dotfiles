@@ -5,6 +5,10 @@
     to { opacity: 1; transform: scale(1); }
 }
 
+* {
+    font-family: "FiraCode Nerd Font Mono", monospace;
+}
+
 #outer-box {
     border: 1px solid @foreground;
     border-radius: 10px;
