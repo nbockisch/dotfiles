@@ -17,8 +17,8 @@ close_on_focus_loss=true
 always_parse_args=true
 show_all=true
 print_command=true
-columns=4
-image_size=150
+columns=1
+image_size=50
 layer=overlay
 
 key_up=Ctrl-p
