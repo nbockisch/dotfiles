@@ -1,8 +1,15 @@
-font="FiraCode Nerd Font Mono 10"
-background-color={{background}}
+font=FiraCode Nerd Font Mono 10
+
+background-color={{background}}DD
 text-color={{cursor}}
-border-color={{foreground}}
+
+border-size=1
+border-color={{foreground}}DD
+
 progress-color={{color0}}
+
 text-alignment=center
-default-timeout=3000
 anchor=top-center
+padding=20,10
+
+default-timeout=3000

@@ -16,6 +16,7 @@ main() {
         cp $selected_wallpaper $WALLPAPER_DIR/current
         wallust run $WALLPAPER_DIR/current
         swaybg -m fill -i $WALLPAPER_DIR/current
+        makoctl reload
     fi
 }
 
