@@ -2,3 +2,8 @@ dotfiles/neovim/.config/nvim/undodir/
 dotfiles/neovim/.config/nvim/nvim-pack-lock.json
 dotfiles/tmux/.config/tmux/plugins/
 backup/
+
+dotfiles/wofi/.config/wofi/colors.css
+dotfiles/waybar/.config/waybar/colors.css
+dotfiles/ghostty/.config/ghostty/colors_ghostty.conf
+dotfiles/mako/.config/mako/colors.conf

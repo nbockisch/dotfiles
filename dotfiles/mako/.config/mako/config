@@ -1,2 +1,13 @@
-# This file is ignored, edit the wallust template instead
-font="FiraCode Nerd Font Mono 10"
+include=~/.config/mako/colors.conf
+
+font=FiraCode Nerd Font Mono 10
+
+border-size=1
+
+text-alignment=center
+anchor=top-center
+padding=20,10
+
+default-timeout=3000
+
+on-notify=exec makoctl menu wofi -d -p 'Choose Action: '

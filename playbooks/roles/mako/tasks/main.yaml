@@ -1,16 +1,32 @@
 - name: Install Arch packages
   community.general.pacman:
-    name: mako
+    name:
+      - jq
+      - mako
     state: present
   when: ansible_facts['distribution'] == 'Archlinux'
 
-# - name: Apply Mako config
-#   ansible.builtin.shell: 'stow --target=${HOME} mako'
-#   args:
-#     chdir: '{{ playbook_dir }}/../dotfiles'
-#   become: true
-#   become_user: '{{ user }}'
-#
+- name: Copy notification picker script
+  ansible.builtin.shell: 'stow --target=${HOME} notification-picker'
+  args:
+    chdir: '{{ playbook_dir }}/../scripts'
+  become: yes
+  become_user: '{{ user }}'
+
+- name: Make the notification picking script executable
+  ansible.builtin.file:
+    path: ~/scripts/notification-picker.sh
+    mode: a+x
+  become: yes
+  become_user: '{{ user }}'
+
+- name: Apply Mako config
+  ansible.builtin.shell: 'stow --target=${HOME} mako'
+  args:
+    chdir: '{{ playbook_dir }}/../dotfiles'
+  become: true
+  become_user: '{{ user }}'
+
 # # - name: Copy mako systemd service file
 # #   ansible.builtin.copy:
 # #     src: swaync.service
