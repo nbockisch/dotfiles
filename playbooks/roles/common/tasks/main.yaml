@@ -44,6 +44,7 @@
     name:
       - bat
       - eza
+      - firefox
       - git
       - man
       - sudo
