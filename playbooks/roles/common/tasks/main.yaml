@@ -47,6 +47,7 @@
       - git
       - man
       - sudo
+      - stow
       - tmux
       - wlr-randr
       - ttf-firacode-nerd
