@@ -2,6 +2,8 @@
   community.general.pacman:
     name:
       - alsa-utils
+      - nm-connection-editor
+      - pavucontrol
       - waybar
     state: present
   when: ansible_facts['distribution'] == 'Archlinux'

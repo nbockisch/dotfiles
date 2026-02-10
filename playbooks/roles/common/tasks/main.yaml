@@ -50,5 +50,6 @@
       - tmux
       - wlr-randr
       - ttf-firacode-nerd
+      - zathura
     state: present
   when: ansible_facts['distribution'] == 'Archlinux'

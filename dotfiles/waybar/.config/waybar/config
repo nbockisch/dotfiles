@@ -6,7 +6,8 @@
         // Live update bar style when style file updated
         "reload_style_on_change": true,
 
-        "modules-left": ["custom/notification", "clock", "tray"],
+        // "modules-left": ["custom/notification", "clock", "tray"],
+        "modules-left": ["clock", "tray"],
         "modules-center": ["niri/workspaces"],
         "modules-right": ["group/expand", "bluetooth", "network", "pulseaudio", "battery"],
 
