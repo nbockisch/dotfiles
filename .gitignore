@@ -7,5 +7,7 @@ dotfiles/wofi/.config/wofi/colors.css
 dotfiles/waybar/.config/waybar/colors.css
 dotfiles/ghostty/.config/ghostty/colors_ghostty.conf
 dotfiles/mako/.config/mako/colors.conf
+dotfiles/hyprlock/.config/hypr/colors.conf
+dotfiles/nushell/.config/nushell/history.txt
 
 wallpapers/pictures/wallpapers/current

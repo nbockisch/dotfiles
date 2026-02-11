@@ -50,6 +50,7 @@
       - sudo
       - stow
       - tmux
+      - wl-clipboard
       - wlr-randr
       - ttf-firacode-nerd
       - zathura
