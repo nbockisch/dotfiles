@@ -43,6 +43,7 @@
   community.general.pacman:
     name:
       - bat
+      - blueman
       - eza
       - firefox
       - git
