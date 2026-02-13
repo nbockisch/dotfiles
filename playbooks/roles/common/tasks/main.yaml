@@ -54,6 +54,8 @@
       - eza
       - firefox
       - git
+      - kubectx
+      - k9s
       - man
       - sudo
       - stow
