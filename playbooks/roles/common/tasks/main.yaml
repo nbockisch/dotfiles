@@ -25,6 +25,13 @@
   become_user: aur_builder
   when: ansible_facts['distribution'] == 'Archlinux'
 
+- name: Apply Paru config
+  ansible.builtin.shell: 'stow --target=${HOME} paru'
+  args:
+    chdir: '{{ playbook_dir }}/../dotfiles'
+  become: true
+  become_user: '{{ user }}'
+
 # - name: Remove AUR user permissions
 #   become: yes
 #   ansible.builtin.file:
