@@ -4,6 +4,7 @@
       - brightnessctl
       - niri
       - playerctl
+      - xwayland-satellite
     state: present
   when: ansible_facts['distribution'] == 'Archlinux'
 
