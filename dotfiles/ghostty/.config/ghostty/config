@@ -1,7 +1,7 @@
 # Colors
 config-file = ~/.config/ghostty/colors_ghostty.conf
 
-font-family = "FiraCode Nerd Font Mono"
+font-family = "FiraCode Nerd Font"
 window-decoration = false
 window-padding-x = 20
 window-padding-y = 20
