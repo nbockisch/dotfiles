@@ -51,6 +51,7 @@
       - sudo
       - stow
       - tmux
+      - wdisplays
       - wl-clipboard
       - wlr-randr
       - ttf-firacode-nerd

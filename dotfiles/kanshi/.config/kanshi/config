@@ -1,0 +1,9 @@
+profile no-external-display {
+    output eDP-1 enable scale 1.75
+}
+
+profile home {
+    output eDP-1 disable
+    output DP-2 mode 3840x1600@59.993999 position 5040,0 scale 1
+    output DP-1 mode 3840x2160@59.99399 transform 90 position 8880,0 scale 1
+}
