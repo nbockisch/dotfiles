@@ -50,6 +50,7 @@
   community.general.pacman:
     name:
       - bat
+      - bind
       - blueman
       - eza
       - firefox
