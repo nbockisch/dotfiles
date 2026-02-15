@@ -16,6 +16,13 @@
 # You can also pretty-print and page through the documentation for configuration
 # options using:
 #     config nu --doc | nu-highlight | less -R
+$env.config.show_banner = false
+
 $env.config.buffer_editor = 'nvim'
+
+# Reedline
+$env.config.edit_mode = "vi"
+$env.config.cursor_shape.vi_insert = "blink_line"
+$env.config.cursor_shape.vi_normal = "block"
 
 alias v = nvim
