@@ -56,20 +56,21 @@
       - firefox
       - git
       - gnupg
+      - k9s
       - krew
       - kubectl
       - kubectx
-      - k9s
       - man
       - pass
-      - sudo
       - sops
       - stow
+      - sudo
       - tmux
+      - ttf-firacode-nerd
       - wdisplays
       - wl-clipboard
       - wlr-randr
-      - ttf-firacode-nerd
+      - yazi
       - zathura
     state: present
   when: ansible_facts['distribution'] == 'Archlinux'
