@@ -55,9 +55,11 @@
       - eza
       - firefox
       - git
+      - gnupg
       - kubectx
       - k9s
       - man
+      - pass
       - sudo
       - stow
       - tmux
@@ -68,3 +70,15 @@
       - zathura
     state: present
   when: ansible_facts['distribution'] == 'Archlinux'
+
+- name: Install Arch AUR packages
+  kewlfft.aur.aur:
+    name: git-credential-manager
+  become: yes
+  become_user: aur_builder
+  when: ansible_facts['distribution'] == 'Archlinux'
+
+- name: Make Git Credential Manager run in CLI mode
+  ansible.builtin.shell: 'git config --global credential.guiPrompt false'
+  become: true
+  become_user: '{{ user }}'
