@@ -16,6 +16,10 @@
 # You can also pretty-print and page through the documentation for configuration
 # options using:
 #     config nu --doc | nu-highlight | less -R
+# Ensure locale is set for UTF-8 (needed for tmux glyph rendering)
+$env.LANG = "en_US.UTF-8"
+$env.LC_ALL = "en_US.UTF-8"
+
 $env.config.show_banner = false
 
 $env.config.buffer_editor = 'nvim'
