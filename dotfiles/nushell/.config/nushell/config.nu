@@ -19,6 +19,7 @@
 # Ensure locale is set for UTF-8 (needed for tmux glyph rendering)
 $env.LANG = "en_US.UTF-8"
 $env.LC_ALL = "en_US.UTF-8"
+$env.EDITOR = "nvim"
 $env.GCM_CREDENTIAL_STORE = "gpg"
 
 $env.config.show_banner = false
@@ -31,6 +32,7 @@ $env.config.cursor_shape.vi_insert = "blink_line"
 $env.config.cursor_shape.vi_normal = "block"
 
 alias v = nvim
+alias k = kubectl
 
 # Starship
 mkdir ($nu.data-dir | path join "vendor/autoload")

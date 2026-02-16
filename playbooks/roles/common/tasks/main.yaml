@@ -56,11 +56,14 @@
       - firefox
       - git
       - gnupg
+      - krew
+      - kubectl
       - kubectx
       - k9s
       - man
       - pass
       - sudo
+      - sops
       - stow
       - tmux
       - wdisplays
