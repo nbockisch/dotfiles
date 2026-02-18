@@ -93,6 +93,11 @@
     enabled: yes
     state: started
 
+- name: Install Tilt
+  ansible.builtin.shell:
+    cmd: curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
+    creates: /usr/local/bin/tilt
+
 - name: Install Arch AUR packages
   kewlfft.aur.aur:
     name: git-credential-manager

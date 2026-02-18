@@ -9,5 +9,6 @@ dotfiles/ghostty/.config/ghostty/colors_ghostty.conf
 dotfiles/mako/.config/mako/colors.conf
 dotfiles/hyprlock/.config/hypr/colors.conf
 dotfiles/nushell/.config/nushell/history.txt
+dotfiles/tmux/.config/tmux/plugins/
 
 wallpapers/pictures/wallpapers/current
