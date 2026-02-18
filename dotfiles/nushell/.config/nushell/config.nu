@@ -37,3 +37,6 @@ alias k = kubectl
 # Starship
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+
+# Make sure krew plugins are accessible
+$env.PATH ++= [ ([$env.HOME, ".krew", "bin"] | path join) ]
