@@ -52,6 +52,8 @@
       - bat
       - bind
       - blueman
+      - docker
+      - docker-buildx
       - eza
       - firefox
       - git
@@ -74,6 +76,16 @@
       - zathura
     state: present
   when: ansible_facts['distribution'] == 'Archlinux'
+
+- name: Add user to the Docker group
+  ansible.builtin.user:
+    name: '{{ user }}'
+    groups: docker
+    append: true
+
+- name: Refresh user's group membership
+  ansible.builtin.meta:
+    reset_connection
 
 - name: Install Arch AUR packages
   kewlfft.aur.aur:
