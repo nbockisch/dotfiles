@@ -58,6 +58,7 @@
       - firefox
       - git
       - gnupg
+      - helm
       - k9s
       - krew
       - kubectl
