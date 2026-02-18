@@ -87,6 +87,12 @@
   ansible.builtin.meta:
     reset_connection
 
+- name: Enable and start the Docker daemon
+  ansible.builtin.service:
+    name: docker
+    enabled: yes
+    state: started
+
 - name: Install Arch AUR packages
   kewlfft.aur.aur:
     name: git-credential-manager
