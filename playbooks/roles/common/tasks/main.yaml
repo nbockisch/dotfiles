@@ -73,6 +73,7 @@
       - wdisplays
       - wl-clipboard
       - wlr-randr
+      - xdg-desktop-portal-gnome
       - yazi
       - zathura
     state: present
