@@ -59,6 +59,7 @@
       - git
       - gnupg
       - helm
+      - helmfile
       - k9s
       - krew
       - kubectl
