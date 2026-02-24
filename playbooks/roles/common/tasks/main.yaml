@@ -56,6 +56,8 @@
       - docker-buildx
       - eza
       - firefox
+      - firefox-i18n-zh-cn
+      - firefox-i18n-zh-tw
       - git
       - gnupg
       - helm
