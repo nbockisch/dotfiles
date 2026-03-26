@@ -49,6 +49,8 @@
 - name: Install common Arch packages
   community.general.pacman:
     name:
+      - adobe-source-han-sans-otc-fonts
+      - adobe-source-han-serif-otc-fonts
       - bat
       - bind
       - blueman
@@ -67,6 +69,7 @@
       - kubectl
       - kubectx
       - man
+      - noto-fonts-cjk
       - pass
       - sops
       - stow
