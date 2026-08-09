@@ -11,4 +11,6 @@ dotfiles/hyprlock/.config/hypr/colors.conf
 dotfiles/nushell/.config/nushell/history.txt
 dotfiles/tmux/.config/tmux/plugins/
 
+dotfiles/nushell/.config/nushell/config.nu
+
 wallpapers/pictures/wallpapers/current
