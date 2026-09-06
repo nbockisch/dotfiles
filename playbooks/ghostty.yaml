@@ -1,0 +1,17 @@
+---
+- name: Configure Ghostty
+  hosts: ghostty
+  become: true
+  tasks:
+    - name: Install Arch Packages
+      community.general.pacman:
+        name: ghostty
+        state: present
+      when: ansible_facts['distribution'] == 'Archlinux'
+
+    - name: Apply Ghostty Config
+      ansible.builtin.shell: 'stow --target=${HOME} ghostty'
+      args:
+        chdir: '{{ playbook_dir }}/../dotfiles'
+      become: true
+      become_user: '{{ user }}'

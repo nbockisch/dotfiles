@@ -1,172 +1,267 @@
-@import url("colors.css");
+@import url("../colors/current/waybar.css");
 
 * {
-    font-size:15px;
-    font-family: "FiraCode Nerd Font Mono";
+    border: none;
+    border-radius: 0;
+    font-family: "Terminus (Nerd Font)", "Terminus", monospace;
+    font-size: 13px;
+    font-weight: bold;
 }
 
 window#waybar {
-    all: unset;
+    background-color: @bg0;
+    color: @fg1;
+    border-bottom: 2px solid @bg2;
+    padding: 0;
+    margin: 0;
 }
 
-.modules-left {
-    padding: 7px;
-    margin: 10 0 5 10;
-    border-radius: 10px;
-    background: alpha(@background, .6);
-    box-shadow: 0px 0px 2px rgba(0, 0, 0, .6);
-}
-
-.modules-center {
-    padding:7px;
-    margin:10 0 5 0;
-    border-radius:10px;
-    background: alpha(@background,.6);
-    box-shadow: 0px 0px 2px rgba(0, 0, 0, .6);
-}
-
-.modules-right {
-    padding:7px;
-    margin: 10 10 5 0;
-    border-radius:10px;
-    background: alpha(@background,.6);
-    box-shadow: 0px 0px 2px rgba(0, 0, 0, .6);
+.modules-left, .modules-center, .modules-right {
+    border: none;
+    margin: 0;
+    padding: 0;
 }
 
 tooltip {
-    background:@background;
-    color: @color7;
+    background-color: @bg0_h;
+    border: 1px solid @bg2;
+    border-radius: 0;
+    font-family: "Terminus (Nerd Font)", "Terminus", monospace;
 }
 
-#custom-notification:hover, #clock:hover, #cpu:hover, #memory:hover, #temperature:hover #bluetooth:hover, #network:hover, #pulseaudio:hover {
-    transition: all .3s ease;
-    color: @color9;
+tooltip label {
+    color: @fg1;
+    font-size: 12px;
+    padding: 4px 8px;
 }
 
-#custom-notification {
-    padding: 0px 5px;
-    transition: all .3s ease;
-    color: @color7;
+#custom-terminal {
+    background-color: @orange_dark;
+    color: @bg0_h;
+    border: 1px solid @orange_light;
+    padding: 1px 6px;
+    margin: 3px 6px;
+
+    animation-name: console_pulse;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
-#clock{
-    padding: 0px 5px;
-    color:@color7;
-    transition: all .3s ease;
+#clock {
+    background-color: @yellow_dark;
+    color: @bg0_h;
+    border: 1px solid @yellow_light;
+    padding: 1px 0px;
+    margin: 3px 6px;
 }
 
-#tray{
-    padding: 0px 5px;
-    transition: all .3s ease; 
-
-}
-#tray menu * {
-    padding: 0px 5px;
-    transition: all .3s ease; 
+#cpu {
+    background-color: @green_dark; 
+    color: @bg0_h;
+    border: 1px solid @green_light;
+    padding: 1px 0px;
+    margin: 3px 6px;
 }
 
-#tray menu separator {
-    padding: 0px 5px;
-    transition: all .3s ease; 
+#cpu.warning {
+    background-color: @orange_dark;
+    border: 1px solid @orange_light;
+    color: @bg0_h;
+}
+
+#cpu.critical {
+    background-color: @red_dark;
+    border: 1px solid @red_light;
+    color: @fg0;
+
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+#memory {
+    background-color: @blue_dark; 
+    color: @bg0_h;
+    border: 1px solid @blue_light;
+    padding: 1px 0px;
+    margin: 3px 6px;
+}
+
+#memory.warning {
+    background-color: @orange_dark;
+    border: 1px solid @orange_light;
+    color: @bg0_h;
+}
+
+#memory.critical {
+    background-color: @red_dark;
+    border: 1px solid @red_light;
+    color: @fg0;
+
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 
 #workspaces {
-    padding: 0px 5px;
+    background-color: @bg1;
+    border: 1px solid @bg3;
+    padding: 0px 2px; 
+    margin: 3px 0px;
 }
 
 #workspaces button {
-    all: unset;
-    padding: 0px 5px;
-    color: alpha(@color9, .4);
-    transition: all .2s ease;
+    font-family: "Terminus (Nerd Font)", "Terminus", monospace;
+    font-size: 13px;
+    font-weight: bold;
+    color: @fg4;
+    background-color: transparent;
+
+    min-height: 0; 
+    min-width: 0;
+
+    padding: 0px 12px; 
+    margin: 2px 2px;
+    border: 1px solid transparent;
 }
 
 #workspaces button:hover {
-    color: rgba(0,0,0,0);
-    border: none;
-    text-shadow: 0px 0px 1.5px rgba(0, 0, 0, .5);
-    transition: all 1s ease;
+    background-color: @bg2;
+    color: @fg1;
+    border: 1px solid @bg4;
 }
 
 #workspaces button.active {
-    color: @color9;
-    border: none;
-    text-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
+    background-color: @aqua_dark;
+    color: @bg0_h;
+
+    border-left: 3px solid @aqua_light;
+    border-right: 3px solid @aqua_light;
+    border-top: 1px solid @aqua_light;
+    border-bottom: 1px solid @aqua_light;
+
+    padding: 0px 9px;
 }
 
-#workspaces button.empty {
-    color: rgba(0,0,0,0);
-    border: none;
-    text-shadow: 0px 0px 1.5px rgba(0, 0, 0, .2);
+#backlight {
+    background-color: @purple_dark; 
+    color: @bg0_h;
+    border: 1px solid @purple_light;
+
+    padding: 1px 0px;
+    margin: 3px 6px;
 }
 
-#workspaces button.empty:hover {
-    color: rgba(0,0,0,0);
-    border: none;
-    text-shadow: 0px 0px 1.5px rgba(0, 0, 0, .5);
-    transition: all 1s ease;
+#bluetooth {
+    background-color: @blue_dark;
+    color: @bg0_h;
+    border: 1px solid @blue_light;
+
+    /* Strict spatial alignment parameters */
+    padding: 1px 0px;
+    margin: 3px 6px;
 }
 
-#workspaces button.empty.active {
-    color: @color9;
-    border: none;
-    text-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
+#bluetooth.disabled {
+    background-color: @bg1;
+    border: 1px solid @bg3;
+    color: @fg4;
 }
 
-#group-expand{
-    padding: 0px 5px;
-    transition: all .3s ease; 
+#network {
+    background-color: @green_dark;
+    color: @bg0_h;
+    border: 1px solid @green_light;
+
+    /* Enforces universal structural symmetry */
+    padding: 1px 0px;
+    margin: 3px 6px;
 }
 
-#custom-expand{
-    padding: 0px 5px;
-    color:alpha(@foreground,.2);
-    text-shadow: 0px 0px 2px rgba(0, 0, 0, .7);
-    transition: all .3s ease; 
+#network.disconnected {
+    background-color: @red_dark;
+    border: 1px solid @red_light;
+    color: @fg0;
+
+    animation-name: blink;
+    animation-duration: 1.2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 
-#custom-expand:hover{
-    color:rgba(255,255,255,.2);
-    text-shadow: 0px 0px 2px rgba(255, 255, 255, .5);
+#battery {
+    background-color: @yellow_dark; 
+    color: @bg0_h;
+    border: 1px solid @yellow_light;
+
+    /* Perfect horizontal and vertical grid symmetry */
+    padding: 1px 0px;
+    margin: 3px 6px;
 }
 
-#cpu,#memory,#temperature{
-    padding: 0px 5px;
-    transition: all .3s ease; 
-    color: @color7;
-}
+#battery.charging, #battery.plugged {
+    background-color: @green_dark;
+    border: 1px solid @green_light;
+    color: @bg0_h;
 
-#bluetooth{
-    padding: 0px 5px;
-    transition: all .3s ease;
-    color: @color7;
-}
-
-#network{
-    padding: 0px 5px;
-    transition: all .3s ease;
-    color: @color7;
-}
-
-#battery{
-    padding: 0px 5px;
-    transition: all .3s ease;
-    color: @color7;
-}
-
-#battery.charging {
-    color: #26A65B;
+    animation-name: charging_pulse;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
 #battery.warning:not(.charging) {
-    color: #ffbe61;
+    background-color: @orange_dark;
+    border: 1px solid @orange_light;
+    color: @bg0_h;
 }
 
 #battery.critical:not(.charging) {
-    color: #f53c3c;
+    background-color: @red_dark;
+    border: 1px solid @red_light;
+    color: @fg0;
+
     animation-name: blink;
-    animation-duration: 0.5s;
+    animation-duration: 0.8s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
-    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        background-color: @bg0_h;
+        color: @red_light;
+        border: 1px solid @red_dark;
+    }
+}
+
+@keyframes console_pulse {
+    from {
+        background-color: @orange_dark;
+        border-color: @orange_light;
+        color: @bg0_h;
+    }
+    to {
+        background-color: @bg0_h;
+        border-color: @orange_dark;
+        color: @orange_light;
+    }
+}
+
+@keyframes charging_pulse {
+    from {
+        background-color: @green_dark;
+        border-color: @green_light;
+        color: @bg0_h;
+    }
+    to {
+        background-color: @green_light; /* Fades up to the bright lime accent */
+        border-color: @fg0;            /* Bezel brightens up */
+        color: @bg0_h;                 /* Retains perfect black font cutout readability */
+    }
 }

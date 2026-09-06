@@ -1,0 +1,30 @@
+---
+- name: Configure Arch Linux
+  ansible.builtin.import_playbook: playbooks/arch.yaml
+
+- name: Configure Ghostty
+  ansible.builtin.import_playbook: playbooks/ghostty.yaml
+
+- name: Configure Hyprlock
+  ansible.builtin.import_playbook: playbooks/hyprlock.yaml
+
+- name: Configure Kanshi
+  ansible.builtin.import_playbook: playbooks/kanshi.yaml
+
+- name: Configure Mako
+  ansible.builtin.import_playbook: playbooks/mako.yaml
+
+- name: Configure Neovim
+  ansible.builtin.import_playbook: playbooks/neovim.yaml
+
+- name: Configure Rofi
+  ansible.builtin.import_playbook: playbooks/rofi.yaml
+
+- name: Configure Starship
+  ansible.builtin.import_playbook: playbooks/starship.yaml
+
+- name: Configure Tmux
+  ansible.builtin.import_playbook: playbooks/tmux.yaml
+
+- name: Configure Waybar
+  ansible.builtin.import_playbook: playbooks/waybar.yaml

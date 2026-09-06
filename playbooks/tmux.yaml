@@ -1,0 +1,16 @@
+- name: Configure Tmux
+  hosts: tmux
+  become: true
+  tasks:
+    - name: Install Arch Packages
+      community.general.pacman:
+        name: tmux
+        state: present
+      when: ansible_facts['distribution'] == 'Archlinux'
+
+    - name: Apply Tmux Config
+      ansible.builtin.shell: 'stow --target=${HOME} tmux'
+      args:
+        chdir: '{{ playbook_dir }}/../dotfiles'
+      become: true
+      become_user: '{{ user }}'

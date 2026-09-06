@@ -1,0 +1,21 @@
+- name: Configure Waybar
+  hosts: waybar
+  become: true
+  tasks:
+    - name: Install Arch Packages
+      community.general.pacman:
+        name:
+          - alsa-utils
+          - nm-connection-editor
+          - pavucontrol
+          - ttf-terminus-nerd
+          - waybar
+        state: present
+      when: ansible_facts['distribution'] == 'Archlinux'
+
+    - name: Apply Waybar Config
+      ansible.builtin.shell: 'stow --target=${HOME} waybar'
+      args:
+        chdir: '{{ playbook_dir }}/../dotfiles'
+      become: true
+      become_user: '{{ user }}'

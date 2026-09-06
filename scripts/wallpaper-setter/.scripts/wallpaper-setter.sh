@@ -8,8 +8,10 @@ menu() {
 }
 
 main() {
-    choice=$(menu | wofi --style /home/nathan/.config/wofi/style.css --show dmenu --prompt "Select Wallpaper:" -n)
+    choice=$(menu | rofi -dmenu --prompt "Select Wallpaper:" -n)
+    # choice=$(menu | wofi --style /home/nathan/.config/wofi/style.css --show dmenu --prompt "Select Wallpaper:" -n)
     selected_wallpaper=$(echo "$choice" | awk -F ':' '{ print $2 }')
+    echo $selected_wallpaper
 
     # Only set the color scheme and cache the wallpaper if one was selected
     if [[ -n $selected_wallpaper ]]; then

@@ -1,0 +1,59 @@
+- name: Configure Neovim
+  hosts: neovim
+  become: true
+  tasks:
+    - name: Install Arch Neovim Setup Dependencies
+      community.general.pacman:
+        name:
+          - bash-language-server
+          - bat
+          - ccls
+          - deno
+          - fzf
+          - go
+          - gopls
+          - lua-language-server
+          - npm
+          - pyright
+          - rust-analyzer
+          - rustup
+          - svelte-language-server
+          - tailwindcss-language-server
+          - tree-sitter
+          - tree-sitter-bash
+          - tree-sitter-c
+          - tree-sitter-lua
+          - tree-sitter-python
+          - tree-sitter-rust
+          - typescript-language-server
+          - vscode-css-languageserver
+          - vscode-html-languageserver
+        state: present
+      when: ansible_facts['distribution'] == 'Archlinux'
+
+    - name: Install Arch AUR Packages
+      kewlfft.aur.aur:
+        name:
+          # - java-language-server
+          # - tree-sitter-java
+          - docker-language-server
+          - tree-sitter-css
+          - tree-sitter-go
+          - tree-sitter-html
+          - tree-sitter-json
+          - tree-sitter-make
+          - tree-sitter-sql
+          - tree-sitter-svelte
+          - tree-sitter-yaml
+        use: paru
+        state: present
+      become: yes
+      become_user: aur_builder
+      when: ansible_facts['distribution'] == 'Archlinux'
+
+    - name: Apply Neovim Config
+      ansible.builtin.shell: 'stow --target=${HOME} neovim'
+      args:
+        chdir: '{{ playbook_dir }}/../dotfiles'
+      become: yes
+      become_user: '{{ user }}'

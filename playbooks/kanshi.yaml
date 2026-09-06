@@ -1,0 +1,17 @@
+---
+- name: Configure Kanshi
+  hosts: kanshi
+  become: true
+  tasks:
+    - name: Install Arch Packages
+      community.general.pacman:
+        name: kanshi
+        state: present
+      when: ansible_facts['distribution'] == 'Archlinux'
+
+    - name: Apply Kanshi Config
+      ansible.builtin.shell: 'stow --target=${HOME} kanshi'
+      args:
+        chdir: '{{ playbook_dir }}/../dotfiles'
+      become: true
+      become_user: '{{ user }}'

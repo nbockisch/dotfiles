@@ -7,8 +7,9 @@
     - common
     - wallpapers
     - waybar
-    - wofi
-    - fuzzel
+    # - wofi
+    # - fuzzel
+    - rofi
     - ghostty
     - mako
     - kanshi

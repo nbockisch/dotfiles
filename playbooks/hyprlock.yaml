@@ -1,0 +1,17 @@
+---
+- name: Configure Hyprlock
+  hosts: hyprlock
+  become: true
+  tasks:
+    - name: Install Arch Packages
+      community.general.pacman:
+        name: hyprlock
+        state: present
+      when: ansible_facts['distribution'] == 'Archlinux'
+
+    - name: Apply Hyprlock Config
+      ansible.builtin.shell: 'stow --target=${HOME} hyprlock'
+      args:
+        chdir: '{{ playbook_dir }}/../dotfiles'
+      become: true
+      become_user: '{{ user }}'
