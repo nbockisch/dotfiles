@@ -2,9 +2,9 @@
     "layer": "top",
     "position": "top",
     "height": 28,
-    "modules-left": ["custom/terminal", "clock", "cpu", "memory"],
+    "modules-left": ["custom/terminal", "clock", "cpu", "memory", "tray"],
     "modules-center": ["ext/workspaces"],
-    "modules-right": ["backlight", "bluetooth", "network", "battery"],
+    "modules-right": ["pulseaudio", "backlight", "bluetooth", "network", "battery"],
 
     "custom/terminal": {
         "format": "● CONSOLE",
@@ -35,6 +35,11 @@
         }
     },
 
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8
+    },
+
     "ext/workspaces": {
         "format": "{icon}", 
         "all-outputs": false,
@@ -48,9 +53,22 @@
         }
     },
 
+    "pulseaudio": {
+        "format": "[ {icon}  {volume}% ]",
+        "format-muted": "[ 󰖁  MUTE ]",
+        "format-icons": {
+            "headphone": "󰋋",
+            "headset": "󰋎",
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "scroll-step": 5,
+        "on-click": "pavucontrol",
+        "tooltip": false
+    },
+
     "backlight": {
         "interval": 2,
-        "format": "[  {percent}% ]",
+        "format": "[   {percent}% ]",
         "tooltip": false
     },
 
@@ -86,7 +104,7 @@
             "on-discharging": "notify-send -u normal 'Power Switch' Discharging",
             "on-charging": "notify-send -u normal 'Power Switch' Charging'"
         },
-        "format": "[ {icon} {capacity}% ]",
+        "format": "[ {icon}  {capacity}% ]",
         "format-charging": "[ 󱐋 {capacity}% ]",
         "format-plugged": "[  AC_PWR ]",
         "format-icons": ["", "", "", "", ""],

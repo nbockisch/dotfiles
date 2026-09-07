@@ -1,8 +1,33 @@
 # Colors
-config-file = ~/.config/ghostty/colors_ghostty.conf
+config-file = ../colors/current/ghostty.ini
 
-font-family = FiraCode Nerd Font Mono
+# CRT effect is applied desktop-wide by Hyprland's decoration:screen_shader
+# (see hypr/shaders/crt.glsl), so it is deliberately not applied again here.
+
+# Typography Instruments
+font-family = "Terminess Nerd Font Mono"
+font-size = 13
+font-style = Bold
+adjust-cell-height = 12%
+
+# Mechanical Display Tweaks
+cursor-style = block
+cursor-style-blink = true
+adjust-underline-thickness = 2
+minimum-contrast = 1.1
+mouse-hide-while-typing = true
+
+# Dashboard Border Padding
+window-padding-x = 8
+window-padding-y = 8
+window-padding-color = background
+
+# Holographic Glass Blur
+# background-opacity = 0.85
+# background-blur = true
+
+# Tiling Sync
 window-decoration = false
-window-padding-x = 20
-window-padding-y = 20
-window-padding-balance = true
+
+# Drop-Down Console (position defaults to top)
+keybind = global:ctrl+backquote=toggle_quick_terminal

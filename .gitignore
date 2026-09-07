@@ -14,3 +14,6 @@ dotfiles/tmux/.config/tmux/plugins/
 dotfiles/nushell/.config/nushell/config.nu
 
 wallpapers/pictures/wallpapers/current
+
+# Active colour scheme is runtime state, created by the switcher, never tracked
+dotfiles/colors/.config/colors/current

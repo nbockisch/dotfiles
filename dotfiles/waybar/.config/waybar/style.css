@@ -3,15 +3,15 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: "Terminus (Nerd Font)", "Terminus", monospace;
+    font-family: "Terminess Nerd Font", monospace;
     font-size: 13px;
     font-weight: bold;
 }
 
 window#waybar {
-    background-color: @bg0;
-    color: @fg1;
-    border-bottom: 2px solid @bg2;
+    background-color: @bg;
+    color: @fg;
+    border-bottom: 2px solid @surface;
     padding: 0;
     margin: 0;
 }
@@ -23,22 +23,22 @@ window#waybar {
 }
 
 tooltip {
-    background-color: @bg0_h;
-    border: 1px solid @bg2;
+    background-color: @bg_dim;
+    border: 1px solid @surface;
     border-radius: 0;
-    font-family: "Terminus (Nerd Font)", "Terminus", monospace;
+    font-family: "Terminess Nerd Font", monospace;
 }
 
 tooltip label {
-    color: @fg1;
+    color: @fg;
     font-size: 12px;
     padding: 4px 8px;
 }
 
 #custom-terminal {
-    background-color: @orange_dark;
-    color: @bg0_h;
-    border: 1px solid @orange_light;
+    background-color: @orange;
+    color: @bg_dim;
+    border: 1px solid @orange_br;
     padding: 1px 6px;
     margin: 3px 6px;
 
@@ -50,31 +50,31 @@ tooltip label {
 }
 
 #clock {
-    background-color: @yellow_dark;
-    color: @bg0_h;
-    border: 1px solid @yellow_light;
+    background-color: @yellow;
+    color: @bg_dim;
+    border: 1px solid @yellow_br;
     padding: 1px 0px;
     margin: 3px 6px;
 }
 
 #cpu {
-    background-color: @green_dark; 
-    color: @bg0_h;
-    border: 1px solid @green_light;
+    background-color: @green; 
+    color: @bg_dim;
+    border: 1px solid @green_br;
     padding: 1px 0px;
     margin: 3px 6px;
 }
 
 #cpu.warning {
-    background-color: @orange_dark;
-    border: 1px solid @orange_light;
-    color: @bg0_h;
+    background-color: @orange;
+    border: 1px solid @orange_br;
+    color: @bg_dim;
 }
 
 #cpu.critical {
-    background-color: @red_dark;
-    border: 1px solid @red_light;
-    color: @fg0;
+    background-color: @red;
+    border: 1px solid @red_br;
+    color: @fg_hi;
 
     animation-name: blink;
     animation-duration: 1s;
@@ -83,23 +83,23 @@ tooltip label {
 }
 
 #memory {
-    background-color: @blue_dark; 
-    color: @bg0_h;
-    border: 1px solid @blue_light;
+    background-color: @blue; 
+    color: @bg_dim;
+    border: 1px solid @blue_br;
     padding: 1px 0px;
     margin: 3px 6px;
 }
 
 #memory.warning {
-    background-color: @orange_dark;
-    border: 1px solid @orange_light;
-    color: @bg0_h;
+    background-color: @orange;
+    border: 1px solid @orange_br;
+    color: @bg_dim;
 }
 
 #memory.critical {
-    background-color: @red_dark;
-    border: 1px solid @red_light;
-    color: @fg0;
+    background-color: @red;
+    border: 1px solid @red_br;
+    color: @fg_hi;
 
     animation-name: blink;
     animation-duration: 1s;
@@ -107,18 +107,36 @@ tooltip label {
     animation-iteration-count: infinite;
 }
 
+/* Recessed panel rather than a coloured block: the icons are drawn by the
+   applications themselves, so a saturated background fights them. */
+#tray {
+    background-color: @bg_raised;
+    border: 1px solid @surface_hi;
+    padding: 1px 6px;
+    margin: 3px 6px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    background-color: @red;
+    border: 1px solid @red_br;
+}
+
 #workspaces {
-    background-color: @bg1;
-    border: 1px solid @bg3;
-    padding: 0px 2px; 
+    background-color: @bg_raised;
+    border: 1px solid @surface_hi;
+    padding: 0px 2px;
     margin: 3px 0px;
 }
 
 #workspaces button {
-    font-family: "Terminus (Nerd Font)", "Terminus", monospace;
+    font-family: "Terminess Nerd Font", monospace;
     font-size: 13px;
     font-weight: bold;
-    color: @fg4;
+    color: @fg_faint;
     background-color: transparent;
 
     min-height: 0; 
@@ -130,36 +148,51 @@ tooltip label {
 }
 
 #workspaces button:hover {
-    background-color: @bg2;
-    color: @fg1;
-    border: 1px solid @bg4;
+    background-color: @surface;
+    color: @fg;
+    border: 1px solid @overlay;
 }
 
 #workspaces button.active {
-    background-color: @aqua_dark;
-    color: @bg0_h;
+    background-color: @cyan;
+    color: @bg_dim;
 
-    border-left: 3px solid @aqua_light;
-    border-right: 3px solid @aqua_light;
-    border-top: 1px solid @aqua_light;
-    border-bottom: 1px solid @aqua_light;
+    border-left: 3px solid @cyan_br;
+    border-right: 3px solid @cyan_br;
+    border-top: 1px solid @cyan_br;
+    border-bottom: 1px solid @cyan_br;
 
     padding: 0px 9px;
 }
 
+#pulseaudio {
+    background-color: @cyan;
+    color: @bg_dim;
+    border: 1px solid @cyan_br;
+
+    padding: 1px 0px;
+    margin: 3px 6px;
+}
+
+#pulseaudio.muted {
+    background-color: @bg_raised;
+    border: 1px solid @surface_hi;
+    color: @fg_faint;
+}
+
 #backlight {
-    background-color: @purple_dark; 
-    color: @bg0_h;
-    border: 1px solid @purple_light;
+    background-color: @magenta;
+    color: @bg_dim;
+    border: 1px solid @magenta_br;
 
     padding: 1px 0px;
     margin: 3px 6px;
 }
 
 #bluetooth {
-    background-color: @blue_dark;
-    color: @bg0_h;
-    border: 1px solid @blue_light;
+    background-color: @blue;
+    color: @bg_dim;
+    border: 1px solid @blue_br;
 
     /* Strict spatial alignment parameters */
     padding: 1px 0px;
@@ -167,15 +200,15 @@ tooltip label {
 }
 
 #bluetooth.disabled {
-    background-color: @bg1;
-    border: 1px solid @bg3;
-    color: @fg4;
+    background-color: @bg_raised;
+    border: 1px solid @surface_hi;
+    color: @fg_faint;
 }
 
 #network {
-    background-color: @green_dark;
-    color: @bg0_h;
-    border: 1px solid @green_light;
+    background-color: @green;
+    color: @bg_dim;
+    border: 1px solid @green_br;
 
     /* Enforces universal structural symmetry */
     padding: 1px 0px;
@@ -183,9 +216,9 @@ tooltip label {
 }
 
 #network.disconnected {
-    background-color: @red_dark;
-    border: 1px solid @red_light;
-    color: @fg0;
+    background-color: @red;
+    border: 1px solid @red_br;
+    color: @fg_hi;
 
     animation-name: blink;
     animation-duration: 1.2s;
@@ -194,9 +227,9 @@ tooltip label {
 }
 
 #battery {
-    background-color: @yellow_dark; 
-    color: @bg0_h;
-    border: 1px solid @yellow_light;
+    background-color: @yellow; 
+    color: @bg_dim;
+    border: 1px solid @yellow_br;
 
     /* Perfect horizontal and vertical grid symmetry */
     padding: 1px 0px;
@@ -204,9 +237,9 @@ tooltip label {
 }
 
 #battery.charging, #battery.plugged {
-    background-color: @green_dark;
-    border: 1px solid @green_light;
-    color: @bg0_h;
+    background-color: @green;
+    border: 1px solid @green_br;
+    color: @bg_dim;
 
     animation-name: charging_pulse;
     animation-duration: 2s;
@@ -216,15 +249,15 @@ tooltip label {
 }
 
 #battery.warning:not(.charging) {
-    background-color: @orange_dark;
-    border: 1px solid @orange_light;
-    color: @bg0_h;
+    background-color: @orange;
+    border: 1px solid @orange_br;
+    color: @bg_dim;
 }
 
 #battery.critical:not(.charging) {
-    background-color: @red_dark;
-    border: 1px solid @red_light;
-    color: @fg0;
+    background-color: @red;
+    border: 1px solid @red_br;
+    color: @fg_hi;
 
     animation-name: blink;
     animation-duration: 0.8s;
@@ -234,34 +267,34 @@ tooltip label {
 
 @keyframes blink {
     to {
-        background-color: @bg0_h;
-        color: @red_light;
-        border: 1px solid @red_dark;
+        background-color: @bg_dim;
+        color: @red_br;
+        border: 1px solid @red;
     }
 }
 
 @keyframes console_pulse {
     from {
-        background-color: @orange_dark;
-        border-color: @orange_light;
-        color: @bg0_h;
+        background-color: @orange;
+        border-color: @orange_br;
+        color: @bg_dim;
     }
     to {
-        background-color: @bg0_h;
-        border-color: @orange_dark;
-        color: @orange_light;
+        background-color: @bg_dim;
+        border-color: @orange;
+        color: @orange_br;
     }
 }
 
 @keyframes charging_pulse {
     from {
-        background-color: @green_dark;
-        border-color: @green_light;
-        color: @bg0_h;
+        background-color: @green;
+        border-color: @green_br;
+        color: @bg_dim;
     }
     to {
-        background-color: @green_light; /* Fades up to the bright lime accent */
-        border-color: @fg0;            /* Bezel brightens up */
-        color: @bg0_h;                 /* Retains perfect black font cutout readability */
+        background-color: @green_br; /* Fades up to the bright lime accent */
+        border-color: @fg_hi;            /* Bezel brightens up */
+        color: @bg_dim;                 /* Retains perfect black font cutout readability */
     }
 }

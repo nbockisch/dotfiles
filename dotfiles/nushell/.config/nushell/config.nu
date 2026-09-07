@@ -28,7 +28,7 @@ $env.config.buffer_editor = 'nvim'
 
 # Reedline
 $env.config.edit_mode = "vi"
-$env.config.cursor_shape.vi_insert = "blink_line"
+$env.config.cursor_shape.vi_insert = "blink_block"
 $env.config.cursor_shape.vi_normal = "block"
 
 alias v = nvim

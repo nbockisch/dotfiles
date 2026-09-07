@@ -1,12 +1,20 @@
-include=~/.config/mako/colors.conf
+font=Terminess Nerd Font Bold 11
 
-font=FiraCode Nerd Font Mono 10
+border-size=2
+border-radius=0
 
-border-size=1
+width=380
+padding=10,14
+margin=8
 
 text-alignment=center
 anchor=top-center
-padding=20,10
+
+markup=1
+format=<b>[ %s ]</b>\n%b
 
 default-timeout=3000
 
+# Must stay last: the scheme file ends in [urgency=...] sections, which would
+# otherwise swallow every option declared after it.
+include=~/.config/colors/current/mako.conf

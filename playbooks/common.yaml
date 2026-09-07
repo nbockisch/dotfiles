@@ -1,0 +1,26 @@
+---
+# Tasks that apply to every host, regardless of which apps are installed.
+# No package installs here, so no privilege escalation is needed.
+- name: Configure Common
+  hosts: all
+  tasks:
+    # Stowed with --no-folding so ~/.config/colors is a real directory rather
+    # than a symlink into the repo. That keeps the active-scheme symlink
+    # (~/.config/colors/current) out of the working tree.
+    - name: Apply Colors Config
+      ansible.builtin.shell: 'stow --no-folding --target=${HOME} colors'
+      args:
+        chdir: '{{ playbook_dir }}/../dotfiles'
+
+    - name: Check For An Existing Colour Scheme Selection
+      ansible.builtin.stat:
+        path: '~/.config/colors/current'
+      register: colors_current
+
+    # Only seeds a default; never overwrites a scheme chosen at runtime.
+    - name: Select Default Colour Scheme
+      ansible.builtin.file:
+        src: 'gruvbox-dark'
+        dest: '~/.config/colors/current'
+        state: link
+      when: not colors_current.stat.exists

@@ -1,6 +1,6 @@
 configuration {
     modes: "window,drun,run,ssh";
-    font: "FiraCode Nerd Font Mono 12";
+    font: "Terminess Nerd Font Bold 12";
 /*	location: 0;*/
 /*	yoffset: 0;*/
 /*	xoffset: 0;*/
@@ -166,3 +166,5 @@ configuration {
       sorting-method:    "name";
   }
 }
+
+@theme "~/.config/rofi/theme.rasi"

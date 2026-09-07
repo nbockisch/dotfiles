@@ -1,0 +1,47 @@
+/* Gruvbox Dark — shared colour vocabulary
+ *
+ * Every scheme in ~/.config/colors must define this full set of names.
+ * GTK aborts the whole stylesheet on an undefined @name, so there are no
+ * optional entries here. Extra scheme-specific colours belong in that
+ * scheme's nvim.lua, not in this file.
+ */
+
+/* Surfaces, darkest to lightest */
+@define-color bg_dim     #1d2021;
+@define-color bg         #282828;
+@define-color bg_raised  #3c3836;
+@define-color surface    #504945;
+@define-color surface_hi #665c54;
+@define-color overlay    #7c6f64;
+
+/* Text, brightest to dimmest */
+@define-color fg_hi      #fbf1c7;
+@define-color fg         #ebdbb2;
+@define-color fg_dim     #bdae93;
+@define-color fg_faint   #a89984;
+
+/* Special */
+@define-color cursor     #fe8019;
+@define-color sel_bg     #504945;
+@define-color sel_fg     #fbf1c7;
+@define-color border     #504945;
+
+/* Accents */
+@define-color red        #cc241d;
+@define-color orange     #d65d0e;
+@define-color yellow     #d79921;
+@define-color green      #98971a;
+@define-color cyan       #689d6a;
+@define-color blue       #458588;
+@define-color magenta    #b16286;
+@define-color gray       #928374;
+
+/* Accents, bright */
+@define-color red_br     #fb4934;
+@define-color orange_br  #fe8019;
+@define-color yellow_br  #fabd2f;
+@define-color green_br   #b8bb26;
+@define-color cyan_br    #8ec07c;
+@define-color blue_br    #83a598;
+@define-color magenta_br #d3869b;
+@define-color gray_br    #a89984;

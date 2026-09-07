@@ -2,8 +2,14 @@
 - name: Configure Arch Linux
   ansible.builtin.import_playbook: playbooks/arch.yaml
 
+- name: Configure Common
+  ansible.builtin.import_playbook: playbooks/common.yaml
+
 - name: Configure Ghostty
   ansible.builtin.import_playbook: playbooks/ghostty.yaml
+
+- name: Configure Hyprland
+  ansible.builtin.import_playbook: playbooks/hyprland.yaml
 
 - name: Configure Hyprlock
   ansible.builtin.import_playbook: playbooks/hyprlock.yaml

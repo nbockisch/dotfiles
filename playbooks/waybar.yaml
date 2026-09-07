@@ -8,10 +8,38 @@
           - alsa-utils
           - nm-connection-editor
           - pavucontrol
+          - pipewire
+          # Provides the PulseAudio shim that waybar's pulseaudio module and
+          # pavucontrol talk to.
+          - pipewire-pulse
           - ttf-terminus-nerd
           - waybar
+          # Session manager; also supplies wpctl, used by the volume keybinds.
+          - wireplumber
         state: present
       when: ansible_facts['distribution'] == 'Archlinux'
+
+    # These packages ship no systemd user presets, so a fresh install leaves the
+    # units disabled and the bar would show no audio device.
+    - name: Look Up The Target User
+      ansible.builtin.getent:
+        database: passwd
+        key: '{{ user }}'
+
+    - name: Enable Audio Services
+      ansible.builtin.systemd_service:
+        name: '{{ item }}'
+        scope: user
+        enabled: true
+        state: started
+      loop:
+        - pipewire.socket
+        - pipewire-pulse.socket
+        - wireplumber.service
+      become: true
+      become_user: '{{ user }}'
+      environment:
+        XDG_RUNTIME_DIR: '/run/user/{{ ansible_facts.getent_passwd[user][1] }}'
 
     - name: Apply Waybar Config
       ansible.builtin.shell: 'stow --target=${HOME} waybar'
