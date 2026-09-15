@@ -1,52 +1,63 @@
 #!/usr/bin/env bash
+set -uo pipefail
 
-WALLPAPER_DIR="$HOME/pictures/wallpapers/"
-COLORSCHEME_DIR="$HOME/.config/wallust/colorschemes/"
+WALLPAPER_DIR="$HOME/pictures/wallpapers"
+COLORS_DIR="$HOME/.config/colors"
 
-get_wal() {
-    # The awk formatting allows both the image and the image name to be displayed in Wofi
-    # find "${WALLPAPER_DIR}" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" \) | awk '{ cmd = "basename \"" $0 "\""; cmd | getline output; close(cmd); print $0"\0icon\x1f"$WALLPAPER_DIR}'
-    WALLPAPER_LIST=$(find "${WALLPAPER_DIR}" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" \))
-    echo -en "$WALLPAPER_LIST" | awk '{
-        full_path = $0;
-        basename = $0;
-        gsub(/.*\//, "", basename);
-        gsub(/\.[^.]+$/, "", basename);
-        printf "%s\t%s\0icon\x1f%s\n", basename, full_path, full_path
-    }'
+list_wallpapers() {
+    find -L "$WALLPAPER_DIR" -maxdepth 1 -type f ! -name current \
+        \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.gif' \) |
+        sort |
+        while read -r path; do
+            name=$(basename "$path")
+            printf '%s\0icon\x1f%s\n' "${name%.*}" "$path"
+        done
 }
 
-set_wal() {
-    # The first argument is the path of the selected wallpaper
-    ln -sfn $1 $WALLPAPER_DIR/current
-    # wallust run $WALLPAPER_DIR/current
-    swaybg -m fill -i $WALLPAPER_DIR/current
+list_schemes() {
+    find "$COLORS_DIR" -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | sort
+}
+
+set_wallpaper() {
+    ln -sfn "$1" "$WALLPAPER_DIR/current"
+    pkill -x swaybg
+    swaybg -m fill -i "$WALLPAPER_DIR/current" >/dev/null 2>&1 &
+    disown
+}
+
+set_scheme() {
+    ln -sfn "$1" "$COLORS_DIR/current"
     makoctl reload
+    pkill -SIGUSR2 -x waybar
+    pkill -SIGUSR2 -x ghostty
+    pkill -SIGUSR1 -x nvim
+    hyprctl reload >/dev/null
 }
 
-get_colors() {
-    ENTRIES=$(find "${COLORSCHEME_DIR}" -type f \( -iname "*.json" \) | awk '{ system("basename " $0) }' )
-    echo -en $ENTRIES
+pick_wallpaper() {
+    local sel path
+    sel=$(list_wallpapers | rofi -dmenu -i -show-icons -p "Wallpaper") || return 0
+    [ -n "$sel" ] || return 0
+
+    path=$(find -L "$WALLPAPER_DIR" -maxdepth 1 -type f -name "$sel.*" | head -1)
+    [ -n "$path" ] && set_wallpaper "$path"
+}
+
+pick_scheme() {
+    local sel
+    sel=$(list_schemes | rofi -dmenu -i -p "Colour scheme") || return 0
+    [ -n "$sel" ] || return 0
+    [ -d "$COLORS_DIR/$sel" ] && set_scheme "$sel"
 }
 
 main() {
-    MAIN_MENU="Colorscheme\nWallpaper"
+    local choice
+    choice=$(printf 'Wallpaper\nColour scheme\n' | rofi -dmenu -i -p "Appearance") || exit 0
 
-    # Select b
-    CHOICE=$(echo -en $MAIN_MENU | rofi -dmenu -format 1 -p "Select Option")
-    echo "CHOICE: $CHOICE"
-
-    case $CHOICE in
-        "1")
-            echo "Colors?"
-            get_colors
-            ;;
-        *)
-            CHOICE=$(get_wal | rofi -dmenu -p -show-icons "Select Option")
-            set_wal $CHOICE
-            ;;
+    case "$choice" in
+        Wallpaper) pick_wallpaper ;;
+        "Colour scheme") pick_scheme ;;
     esac
-    # choice=$(get_wal | rofi -dmenu --prompt "Select Option:")
 }
 
 main

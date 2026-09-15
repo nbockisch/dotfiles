@@ -24,3 +24,30 @@
         dest: '~/.config/colors/current'
         state: link
       when: not colors_current.stat.exists
+
+    - name: Apply Wallpapers
+      ansible.builtin.shell: 'stow --target=${HOME} wallpapers'
+      args:
+        chdir: '{{ playbook_dir }}/..'
+
+    - name: Apply Appearance Menu Script
+      ansible.builtin.shell: 'stow --target=${HOME} appearance-menu'
+      args:
+        chdir: '{{ playbook_dir }}/../scripts'
+
+    - name: Make The Appearance Menu Executable
+      ansible.builtin.file:
+        path: '~/.scripts/appearance-menu.sh'
+        mode: a+x
+
+    - name: Check For An Existing Wallpaper Selection
+      ansible.builtin.stat:
+        path: '~/pictures/wallpapers/current'
+      register: wallpaper_current
+
+    - name: Select Default Wallpaper
+      ansible.builtin.file:
+        src: 'radio-telescopes.jpg'
+        dest: '~/pictures/wallpapers/current'
+        state: link
+      when: not wallpaper_current.stat.exists

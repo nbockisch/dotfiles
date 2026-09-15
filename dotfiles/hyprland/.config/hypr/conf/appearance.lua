@@ -28,7 +28,7 @@ hl.config({
         dim_inactive = true,
         dim_strength = 0.15,
 
-        screen_shader = os.getenv("HOME") .. "/.config/hypr/shaders/crt.glsl",
+        -- screen_shader = os.getenv("HOME") .. "/.config/hypr/shaders/in-game-crt.glsl",
     },
 
     group = {
@@ -56,6 +56,11 @@ hl.config({
     animations = {
         enabled = true,
     },
+
+    misc = {
+        force_default_wallpaper = 0,
+        disable_hyprland_logo = true,
+    },
 })
 
 hl.curve("clunk", { type = "bezier", points = { { 0.25, 1 }, { 0.5, 1 } } })
@@ -65,3 +70,14 @@ hl.animation({ leaf = "windows", enabled = true, speed = 3, bezier = "clunk", st
 hl.animation({ leaf = "windowsOut", enabled = true, speed = 2, bezier = "clunk", style = "popin 90%" })
 hl.animation({ leaf = "border", enabled = true, speed = 2, bezier = "linear" })
 hl.animation({ leaf = "workspaces", enabled = true, speed = 3, bezier = "clunk", style = "slide" })
+
+-- Opacity ramp on new windows; inherits global (0.8s) if left unset
+hl.animation({ leaf = "fadeIn", enabled = true, speed = 1.5, bezier = "clunk" })
+hl.animation({ leaf = "fadeOut", enabled = true, speed = 1, bezier = "clunk" })
+
+-- Layer surfaces: rofi, waybar, mako
+hl.animation({ leaf = "layers", enabled = true, speed = 1.5, bezier = "clunk" })
+hl.animation({ leaf = "layersIn", enabled = true, speed = 1, bezier = "clunk", style = "fade" })
+hl.animation({ leaf = "layersOut", enabled = true, speed = 0.8, bezier = "clunk", style = "fade" })
+hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 1, bezier = "clunk" })
+hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 0.8, bezier = "clunk" })

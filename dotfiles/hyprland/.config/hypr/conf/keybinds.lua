@@ -29,6 +29,7 @@ hl.bind(mod .. " + D", hl.dsp.exec_cmd(menu))
 
 -- Not mod + L: that is focus-right.
 hl.bind("SUPER + ALT + L", hl.dsp.exec_cmd(locker))
+hl.bind(mod .. " + W", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.scripts/appearance-menu.sh"))
 
 ------------------------
 ---- SCREENSHOTS -------
@@ -37,10 +38,15 @@ hl.bind("SUPER + ALT + L", hl.dsp.exec_cmd(locker))
 local shotDir = os.getenv("HOME") .. "/Pictures/Screenshots"
 local shot = "hyprshot -o " .. shotDir .. " -m "
 
-hl.bind("Print", hl.dsp.exec_cmd(shot .. "region --freeze"))
+-- Print is absent on the Epomaker F75; the mod chords are the real binds and
+-- the Print variants are a harmless fallback on keyboards that have it.
+hl.bind(mod .. " + SHIFT + P", hl.dsp.exec_cmd(shot .. "region"))
+hl.bind(mod .. " + SHIFT + O", hl.dsp.exec_cmd(shot .. "output"))
+hl.bind(mod .. " + SHIFT + W", hl.dsp.exec_cmd(shot .. "window"))
+hl.bind(mod .. " + CTRL + P", hl.dsp.exec_cmd(shot .. "region --clipboard-only"))
+
+hl.bind("Print", hl.dsp.exec_cmd(shot .. "region"))
 hl.bind("SHIFT + Print", hl.dsp.exec_cmd(shot .. "output"))
-hl.bind(mod .. " + Print", hl.dsp.exec_cmd(shot .. "window --freeze"))
-hl.bind("CTRL + Print", hl.dsp.exec_cmd(shot .. "region --freeze --clipboard-only"))
 
 ------------------------
 ---- WINDOW STATE ------
@@ -75,9 +81,11 @@ end
 
 -- Five to match the CH01..CH05 readout in waybar. Extend the range here and the
 -- format-icons map in waybar/config together.
-for i = 1, 5 do
-    hl.bind(mod .. " + " .. i, hl.dsp.focus({ workspace = i }))
-    hl.bind(mod .. " + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
+-- 10 maps to key 0; monitors.lua splits 1-5 / 6-10 across the two screens.
+for i = 1, 10 do
+    local key = i % 10
+    hl.bind(mod .. " + " .. key, hl.dsp.focus({ workspace = i }))
+    hl.bind(mod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
 -- Cycle through populated workspaces

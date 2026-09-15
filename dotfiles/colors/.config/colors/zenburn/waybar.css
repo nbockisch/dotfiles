@@ -1,0 +1,36 @@
+/* Zenburn — jnurmine/Zenburn, default (non high-contrast) variant */
+
+@define-color bg_dim     #2c2e2e;
+@define-color bg         #3f3f3f;
+@define-color bg_raised  #434443;
+@define-color surface    #464646;
+@define-color surface_hi #5b605e;
+@define-color overlay    #5d6262;
+
+@define-color fg_hi      #dfe4cf;
+@define-color fg         #dcdccc;
+@define-color fg_dim     #9f9f9f;
+@define-color fg_faint   #8f8f8f;
+
+@define-color cursor     #8faf9f;
+@define-color sel_bg     #284f28;
+@define-color sel_fg     #ffffe0;
+@define-color border     #5b605e;
+
+@define-color red        #cc9393;
+@define-color orange     #dfaf8f;
+@define-color yellow     #f0dfaf;
+@define-color green      #7f9f7f;
+@define-color cyan       #8cd0d3;
+@define-color blue       #8c8cbc;
+@define-color magenta    #bc8cbc;
+@define-color gray       #8f8f8f;
+
+@define-color red_br     #dca3a3;
+@define-color orange_br  #ffcfaf;
+@define-color yellow_br  #efef8f;
+@define-color green_br   #9ece9e;
+@define-color cyan_br    #71d3b4;
+@define-color blue_br    #9fafaf;
+@define-color magenta_br #bc8cbc;
+@define-color gray_br    #9f9f9f;

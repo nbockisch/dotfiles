@@ -1,0 +1,36 @@
+/* Zenbones Dark — zenbones-theme/zenbones.nvim */
+
+@define-color bg_dim     #110f0e;
+@define-color bg         #1c1917;
+@define-color bg_raised  #403833;
+@define-color surface    #504b48;
+@define-color surface_hi #5e5d5c;
+@define-color overlay    #6d6e6f;
+
+@define-color fg_hi      #c4cacf;
+@define-color fg         #b4bdc3;
+@define-color fg_dim     #9ea6ac;
+@define-color fg_faint   #888f94;
+
+@define-color cursor     #c4cacf;
+@define-color sel_bg     #403833;
+@define-color sel_fg     #b4bdc3;
+@define-color border     #504b48;
+
+@define-color red        #de6e7c;
+@define-color orange     #b77e64;
+@define-color yellow     #b77e64;
+@define-color green      #819b69;
+@define-color cyan       #66a5ad;
+@define-color blue       #6099c0;
+@define-color magenta    #b279a7;
+@define-color gray       #403833;
+
+@define-color red_br     #e8838f;
+@define-color orange_br  #d68c67;
+@define-color yellow_br  #d68c67;
+@define-color green_br   #8bae68;
+@define-color cyan_br    #65b8c1;
+@define-color blue_br    #61abda;
+@define-color magenta_br #cf86c1;
+@define-color gray_br    #888f94;

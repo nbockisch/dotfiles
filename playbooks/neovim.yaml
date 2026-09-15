@@ -10,6 +10,7 @@
           - ccls
           - deno
           - fzf
+          - git
           - go
           - gopls
           - lua-language-server

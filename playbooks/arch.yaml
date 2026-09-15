@@ -58,6 +58,7 @@
           - bat
           - bind
           - blueman
+          - bluetui
           - docker
           - docker-buildx
           - eza
