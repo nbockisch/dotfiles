@@ -23,6 +23,9 @@
 - name: Configure Neovim
   ansible.builtin.import_playbook: playbooks/neovim.yaml
 
+- name: Configure Newsboat
+  ansible.builtin.import_playbook: playbooks/newsboat.yaml
+
 - name: Configure Rofi
   ansible.builtin.import_playbook: playbooks/rofi.yaml
 

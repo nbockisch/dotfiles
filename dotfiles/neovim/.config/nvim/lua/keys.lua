@@ -14,6 +14,9 @@ vim.keymap.set('i', '<C-j>', '<Down>', { noremap = true })
 vim.keymap.set('i', '<C-k>', '<Up>', { noremap = true })
 vim.keymap.set('i', '<C-l>', '<Right>', { noremap = true })
 
+-- Find
+vim.keymap.set('n', '<leader>f', ':find', { noremap = true, silent = true })
+
 -- Quality of life improvements
 vim.keymap.set('i', 'jj', '<Esc>'); -- Enter normal mode in a more convenient way
 vim.keymap.set('x', 'K', ':move \'<-2<CR>gv-gv', {noremap = true}) -- move selected

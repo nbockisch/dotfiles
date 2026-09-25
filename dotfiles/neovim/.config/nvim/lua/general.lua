@@ -15,8 +15,6 @@ vim.o.title = true -- set neovim's title in the terminal
 vim.o.wrap = false -- let trailing text go off the screen
 vim.g.netrw_banner = 0 -- hide the top banner of netrw
 
--- Find settings
-
 -- Tab settings
 vim.o.autoindent = true -- autoindent from previous line
 vim.o.expandtab = true -- use spaces instead of tabs
