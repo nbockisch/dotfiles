@@ -1,0 +1,17 @@
+# Unbind default keys to prevent conflicts
+unbind-key ENTER
+unbind-key j
+unbind-key k
+unbind-key J
+unbind-key K
+unbind-key l
+unbind-key q
+
+# Vim navigation
+bind-key j down
+bind-key k up
+bind-key l open
+bind-key h quit
+bind-key g home
+bind-key G end
+bind-key q hard-quit
