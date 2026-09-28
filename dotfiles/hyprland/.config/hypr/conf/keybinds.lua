@@ -53,7 +53,7 @@ hl.bind("SHIFT + Print", hl.dsp.exec_cmd(shot .. "output"))
 ------------------------
 
 hl.bind(mod .. " + SHIFT + Q", hl.dsp.window.close())
-hl.bind(mod .. " + M", hl.dsp.exit())
+hl.bind(mod .. " + ALT + Escape", hl.dsp.exit())
 hl.bind(mod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mod .. " + F", hl.dsp.window.fullscreen())
 hl.bind(mod .. " + P", hl.dsp.window.pseudo())
@@ -78,10 +78,6 @@ end
 ------------------------
 ---- WORKSPACES --------
 ------------------------
-
--- Five to match the CH01..CH05 readout in waybar. Extend the range here and the
--- format-icons map in waybar/config together.
--- 10 maps to key 0; monitors.lua splits 1-5 / 6-10 across the two screens.
 for i = 1, 10 do
     local key = i % 10
     hl.bind(mod .. " + " .. key, hl.dsp.focus({ workspace = i }))

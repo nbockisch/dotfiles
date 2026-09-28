@@ -17,6 +17,9 @@
 - name: Configure Kanshi
   ansible.builtin.import_playbook: playbooks/kanshi.yaml
 
+- name: Configure Ly
+  ansible.builtin.import_playbook: playbooks/ly.yaml
+
 - name: Configure Mako
   ansible.builtin.import_playbook: playbooks/mako.yaml
 

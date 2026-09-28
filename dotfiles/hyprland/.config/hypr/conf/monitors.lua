@@ -2,8 +2,6 @@ local internal = "eDP-1"
 
 hl.monitor({ output = "", mode = "preferred", position = "auto", scale = "auto" })
 
--- Home desk. Matched on description so it survives port changes and does not
--- fire at the other desk, which has a U3821DW rather than a U3824DW.
 hl.monitor({
     output = "desc:Dell Inc. DELL U3824DW",
     mode = "3840x1600@59.994",
@@ -11,7 +9,6 @@ hl.monitor({
     scale = 1,
 })
 
--- Rotated 90 (transform 1), sitting to the right of the ultrawide.
 hl.monitor({
     output = "desc:Dell Inc. DELL S2725QS",
     mode = "3840x2160@60",
@@ -23,9 +20,6 @@ hl.monitor({
 local wide = "desc:Dell Inc. DELL U3824DW"
 local tall = "desc:Dell Inc. DELL S2725QS"
 
--- No persistent: it forces 1-10 into existence up front, which reserves the IDs
--- and pushes new windows onto a fresh workspace (11/12) at desks where neither
--- of these monitors is present. It also kept empty workspaces in waybar.
 for i = 1, 10 do
     hl.workspace_rule({
         workspace = tostring(i),

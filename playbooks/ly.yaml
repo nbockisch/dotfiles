@@ -1,0 +1,37 @@
+---
+- name: Configure Ly
+  hosts: ly
+  become: true
+  tasks:
+    - name: Install Arch Packages
+      community.general.pacman:
+        name:
+          - ly
+        state: present
+      when: ansible_facts['distribution'] == 'Archlinux'
+
+    - name: Apply Ly Config
+      ansible.builtin.copy:
+        src: '{{ playbook_dir }}/../files/ly/config.ini'
+        dest: '/etc/ly/config.ini'
+        owner: root
+        group: root
+        mode: '644'
+
+    - name: Copy Ly Animation
+      ansible.builtin.copy:
+        src: '{{ playbook_dir }}/../files/ly/blackhole.dur'
+        dest: '/etc/ly/blackhole.dur'
+        owner: root
+        group: root
+        mode: '644'
+
+    - name: Enable Ly Service
+      ansible.builtin.service:
+        name: ly@tty1.service
+        enabled: yes
+
+    - name: Disable Getty Service
+      ansible.builtin.service:
+        name: getty@tty1.service
+        enabled: no
