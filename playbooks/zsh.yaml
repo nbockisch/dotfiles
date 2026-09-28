@@ -1,0 +1,23 @@
+---
+- name: Configure Zsh
+  hosts: zsh
+  become: true
+  tasks:
+    - name: Install Arch Packages
+      community.general.pacman:
+        name:
+          - zsh
+        state: present
+      when: ansible_facts['distribution'] == 'Archlinux'
+
+    - name: Apply Zsh Config
+      ansible.builtin.shell: 'stow --target=${HOME} zsh'
+      args:
+        chdir: '{{ playbook_dir }}/../dotfiles'
+      become: true
+      become_user: '{{ user }}'
+
+    - name: Set Zsh as the Default Shell
+      ansible.builtin.user:
+        name: '{{ user }}'
+        shell: /bin/zsh

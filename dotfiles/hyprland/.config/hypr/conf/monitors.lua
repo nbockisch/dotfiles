@@ -65,7 +65,7 @@ end
 local function restartBar()
     hl.exec_cmd(
         "flock -n /tmp/waybar-restart.lock -c "
-            .. "'pkill -x waybar; sleep 0.5; setsid waybar >/dev/null 2>&1 &'"
+            .. "'pgrep -x waybar >/dev/null && { pkill -x waybar; sleep 0.5; setsid waybar >/dev/null 2>&1 & }'"
     )
 end
 

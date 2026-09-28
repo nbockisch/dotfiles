@@ -40,3 +40,6 @@
 
 - name: Configure Waybar
   ansible.builtin.import_playbook: playbooks/waybar.yaml
+
+- name: Configure Zsh
+  ansible.builtin.import_playbook: playbooks/zsh.yaml
