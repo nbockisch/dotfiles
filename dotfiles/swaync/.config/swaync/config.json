@@ -71,7 +71,7 @@
 
                 {
                     "label": "",
-                    "command": "kitty nmtui"
+                    "command": "ghostty nmtui"
                 },
                 {
                     "label": "",
@@ -90,21 +90,19 @@
 
                 {
                     "label": "󰈙",
-                    "command": "kitty bash -i -c 'Docs'"
+                    "command": "ghostty bash -i -c 'Docs'"
                 },
                 {
                     "label": "",
-                    "command": "kitty bash -i -c 'Settings'"
-                    
+                    "command": "ghostty bash -i -c 'Settings'"
                 },
                 {
                     "label": "",
-                    "command": "kitty bash -i -c 'tasks'"
-
+                    "command": "ghostty bash -i -c 'tasks'"
                 },
                 {
                     "label": "",
-                    "command": "hyprlock"
+                    "command": "swaylock"
                 },
                 {
                     "label":"",

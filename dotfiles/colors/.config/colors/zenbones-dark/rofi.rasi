@@ -1,0 +1,31 @@
+* {
+    bg-dim:     #110f0e;
+    bg:         #1c1917;
+    bg-raised:  #403833;
+    surface:    #504b48;
+    surface-hi: #5e5d5c;
+    overlay:    #6d6e6f;
+
+    fg-hi:      #c4cacf;
+    fg:         #b4bdc3;
+    fg-dim:     #9ea6ac;
+    fg-faint:   #888f94;
+
+    red:        #de6e7c;
+    orange:     #b77e64;
+    yellow:     #b77e64;
+    green:      #819b69;
+    cyan:       #66a5ad;
+    blue:       #6099c0;
+    magenta:    #b279a7;
+    gray:       #403833;
+
+    red-br:     #e8838f;
+    orange-br:  #d68c67;
+    yellow-br:  #d68c67;
+    green-br:   #8bae68;
+    cyan-br:    #65b8c1;
+    blue-br:    #61abda;
+    magenta-br: #cf86c1;
+    gray-br:    #888f94;
+}

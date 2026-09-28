@@ -1,0 +1,119 @@
+- name: Create user for AUR installations
+  become: yes
+  ansible.builtin.user:
+    name: aur_builder
+    create_home: yes
+    group: wheel
+  when: ansible_facts['distribution'] == 'Archlinux'
+
+- name: Give AUR user permissions to install AUR packages
+  ansible.builtin.lineinfile:
+    path: /etc/sudoers.d/11-install-aur_builder
+    line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
+    create: yes
+    mode: 0644
+    validate: 'visudo -cf %s'
+  when: ansible_facts['distribution'] == 'Archlinux'
+
+- name: Install AUR helper
+  kewlfft.aur.aur:
+    name:
+      - paru
+    use: auto
+    state: present
+  become: yes
+  become_user: aur_builder
+  when: ansible_facts['distribution'] == 'Archlinux'
+
+- name: Apply Paru config
+  ansible.builtin.shell: 'stow --target=${HOME} paru'
+  args:
+    chdir: '{{ playbook_dir }}/../dotfiles'
+  become: true
+  become_user: '{{ user }}'
+
+# - name: Remove AUR user permissions
+#   become: yes
+#   ansible.builtin.file:
+#     path: /etc/sudoers.d/11-install-aur_builder
+#     state: absent
+#   when: ansible_facts['distribution'] == 'Archlinux'
+
+# - name: Remove the AUR user
+#   ansible.builtin.user:
+#     name: aur_builder
+#     state: absent
+#     remove: yes
+#   when: ansible_facts['distribution'] == 'Archlinux'
+
+- name: Install common Arch packages
+  community.general.pacman:
+    name:
+      - adobe-source-han-sans-otc-fonts
+      - adobe-source-han-serif-otc-fonts
+      - bat
+      - bind
+      - blueman
+      - docker
+      - docker-buildx
+      - eza
+      - firefox
+      - firefox-i18n-zh-cn
+      - firefox-i18n-zh-tw
+      - git
+      - gnupg
+      - helm
+      - helmfile
+      - k9s
+      - krew
+      - kubectl
+      - kubectx
+      - man
+      - noto-fonts-cjk
+      - pass
+      - sops
+      - stow
+      - sudo
+      - tmux
+      - ttf-firacode-nerd
+      - wdisplays
+      - wl-clipboard
+      - wlr-randr
+      - xdg-desktop-portal-gnome
+      - yazi
+      - zathura
+    state: present
+  when: ansible_facts['distribution'] == 'Archlinux'
+
+- name: Add user to the Docker group
+  ansible.builtin.user:
+    name: '{{ user }}'
+    groups: docker
+    append: true
+
+- name: Refresh user's group membership
+  ansible.builtin.meta:
+    reset_connection
+
+- name: Enable and start the Docker daemon
+  ansible.builtin.service:
+    name: docker
+    enabled: yes
+    state: started
+
+- name: Install Tilt
+  ansible.builtin.shell:
+    cmd: curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
+    creates: /usr/local/bin/tilt
+
+- name: Install Arch AUR packages
+  kewlfft.aur.aur:
+    name: git-credential-manager
+  become: yes
+  become_user: aur_builder
+  when: ansible_facts['distribution'] == 'Archlinux'
+
+- name: Make Git Credential Manager run in CLI mode
+  ansible.builtin.shell: 'git config --global credential.guiPrompt false'
+  become: true
+  become_user: '{{ user }}'

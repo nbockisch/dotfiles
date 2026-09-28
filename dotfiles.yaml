@@ -1,0 +1,22 @@
+---
+- name: Apply Dotfiles
+  hosts: targets
+  remote_user: root
+  gather_facts: true
+  roles: # Uncomment the apps you want to install/configure
+    - common
+    - wallpapers
+    - waybar
+    # - wofi
+    # - fuzzel
+    - rofi
+    - ghostty
+    - mako
+    - kanshi
+    - niri
+    - neovim
+    - nushell
+    - starship
+    - hyprlock
+    # - swaync
+    - tmux

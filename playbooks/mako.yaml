@@ -1,0 +1,47 @@
+- name: Configure Mako
+  hosts: mako
+  become: true
+  tasks:
+    - name: Install Arch Packages
+      community.general.pacman:
+        name:
+          - jq
+          - mako
+        state: present
+      when: ansible_facts['distribution'] == 'Archlinux'
+
+    - name: Copy Notification Picker Script
+      ansible.builtin.shell: 'stow --target=${HOME} notification-picker'
+      args:
+        chdir: '{{ playbook_dir }}/../scripts'
+      become: yes
+      become_user: '{{ user }}'
+
+    - name: Make the Notification Picking Script Executable
+      ansible.builtin.file:
+        path: ~/scripts/notification-picker.sh
+        mode: a+x
+      become: yes
+      become_user: '{{ user }}'
+
+    - name: Apply Mako Config
+      ansible.builtin.shell: 'stow --target=${HOME} mako'
+      args:
+        chdir: '{{ playbook_dir }}/../dotfiles'
+      become: true
+      become_user: '{{ user }}'
+
+    # # - name: Copy Mako Systemd Service File
+    # #   ansible.builtin.copy:
+    # #     src: swaync.service
+    # #     dest: /etc/systemd/system/swaync.service
+    # #     owner: root
+    # #     group: root
+    # #     mode: '0777'
+    #
+    # - name: Enable the Swaync Service
+    #   ansible.builtin.service:
+    #     daemon_reload: true
+    #     enabled: true
+    #     name: swaync
+    #     state: started

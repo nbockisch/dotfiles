@@ -1,0 +1,16 @@
+- name: Configure Starship
+  hosts: starship
+  become: true
+  tasks:
+    - name: Install Arch Packages
+      community.general.pacman:
+        name: starship
+        state: present
+      when: ansible_facts['distribution'] == 'Archlinux'
+
+    - name: Apply Starship Config
+      ansible.builtin.shell: 'stow --target=${HOME} starship'
+      args:
+        chdir: '{{ playbook_dir }}/../dotfiles'
+      become: true
+      become_user: '{{ user }}'

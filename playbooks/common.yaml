@@ -1,0 +1,53 @@
+---
+# Tasks that apply to every host, regardless of which apps are installed.
+# No package installs here, so no privilege escalation is needed.
+- name: Configure Common
+  hosts: all
+  tasks:
+    # Stowed with --no-folding so ~/.config/colors is a real directory rather
+    # than a symlink into the repo. That keeps the active-scheme symlink
+    # (~/.config/colors/current) out of the working tree.
+    - name: Apply Colors Config
+      ansible.builtin.shell: 'stow --no-folding --target=${HOME} colors'
+      args:
+        chdir: '{{ playbook_dir }}/../dotfiles'
+
+    - name: Check For An Existing Colour Scheme Selection
+      ansible.builtin.stat:
+        path: '~/.config/colors/current'
+      register: colors_current
+
+    # Only seeds a default; never overwrites a scheme chosen at runtime.
+    - name: Select Default Colour Scheme
+      ansible.builtin.file:
+        src: 'gruvbox-dark'
+        dest: '~/.config/colors/current'
+        state: link
+      when: not colors_current.stat.exists
+
+    - name: Apply Wallpapers
+      ansible.builtin.shell: 'stow --target=${HOME} wallpapers'
+      args:
+        chdir: '{{ playbook_dir }}/..'
+
+    - name: Apply Appearance Menu Script
+      ansible.builtin.shell: 'stow --target=${HOME} appearance-menu'
+      args:
+        chdir: '{{ playbook_dir }}/../scripts'
+
+    - name: Make The Appearance Menu Executable
+      ansible.builtin.file:
+        path: '~/.scripts/appearance-menu.sh'
+        mode: a+x
+
+    - name: Check For An Existing Wallpaper Selection
+      ansible.builtin.stat:
+        path: '~/pictures/wallpapers/current'
+      register: wallpaper_current
+
+    - name: Select Default Wallpaper
+      ansible.builtin.file:
+        src: 'radio-telescopes.jpg'
+        dest: '~/pictures/wallpapers/current'
+        state: link
+      when: not wallpaper_current.stat.exists

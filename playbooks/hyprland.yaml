@@ -1,0 +1,22 @@
+---
+- name: Configure Hyprland
+  hosts: hyprland
+  become: true
+  tasks:
+    - name: Install Arch Packages
+      community.general.pacman:
+        name:
+          - hyprland
+          - hyprpicker
+          - hyprshot
+          - ttf-terminus-nerd
+          - xdg-desktop-portal-hyprland
+        state: present
+      when: ansible_facts['distribution'] == 'Archlinux'
+
+    - name: Apply Hyprland Config
+      ansible.builtin.shell: 'stow --target=${HOME} hyprland'
+      args:
+        chdir: '{{ playbook_dir }}/../dotfiles'
+      become: true
+      become_user: '{{ user }}'

@@ -1,0 +1,42 @@
+# config.nu
+#
+# Installed by:
+# version = "0.109.1"
+#
+# This file is used to override default Nushell settings, define
+# (or import) custom commands, or run any other startup tasks.
+# See https://www.nushell.sh/book/configuration.html
+#
+# Nushell sets "sensible defaults" for most configuration settings, 
+# so your `config.nu` only needs to override these defaults if desired.
+#
+# You can open this file in your default editor using:
+#     config nu
+#
+# You can also pretty-print and page through the documentation for configuration
+# options using:
+#     config nu --doc | nu-highlight | less -R
+# Ensure locale is set for UTF-8 (needed for tmux glyph rendering)
+$env.LANG = "en_US.UTF-8"
+$env.LC_ALL = "en_US.UTF-8"
+$env.EDITOR = "nvim"
+$env.GCM_CREDENTIAL_STORE = "gpg"
+
+$env.config.show_banner = false
+
+$env.config.buffer_editor = 'nvim'
+
+# Reedline
+$env.config.edit_mode = "vi"
+$env.config.cursor_shape.vi_insert = "blink_block"
+$env.config.cursor_shape.vi_normal = "block"
+
+alias v = nvim
+alias k = kubectl
+
+# Starship
+mkdir ($nu.data-dir | path join "vendor/autoload")
+starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+
+# Make sure krew plugins are accessible
+$env.PATH ++= [ ([$env.HOME, ".krew", "bin"] | path join) ]

@@ -1,0 +1,19 @@
+- name: Install Arch Nushell setup dependencies
+  community.general.pacman:
+    name:
+      - nushell
+    state: present
+  when: ansible_facts['distribution'] == 'Archlinux'
+
+- name: Set Nushell as the default shell
+  ansible.builtin.user:
+    name: '{{ user }}'
+    shell: /usr/bin/nu
+    state: present
+
+- name: Apply Nushell config
+  ansible.builtin.shell: 'stow --target=${HOME} nushell'
+  args:
+    chdir: '{{ playbook_dir }}/../dotfiles'
+  become: yes
+  become_user: '{{ user }}'

@@ -1,12 +1,7 @@
-format = """ 
-\
-[](fg:blue)\
+format = """\
 $os\
-[](bg:blue fg:red)\
 $username\
-[](bg:red fg:green)\
 $directory\
-[ ](fg:green)\
 $git_branch\
 $git_status\
 $all\
@@ -16,12 +11,13 @@ add_newline = false
 
 [username]
 show_always = true
-format = '[$user ](bg:red fg:black)'
+format = '[ $user ](bg:red fg:black)'
 disabled = false
 
 [os]
 disabled = false
 style = 'bg:blue fg:black'
+format = '[ $symbol](bg:blue fg:black)'
 [os.symbols]
 Alpaquita = " "
 Alpine = " "
@@ -70,16 +66,17 @@ Void = " "
 Windows = "󰍲 "
 
 [cmd_duration]
-format = "[$duration](fg:red)"
+min_time = 2000
+format = '[ $duration ](bg:bright-black fg:white)'
 
 [directory]
-format = "[$path](bg:green fg:black)"
+format = '[ $path ](bg:green fg:black)'
 truncation_length = 2
 truncation_symbol = "…/"
 
 [character]
-success_symbol = "[](bold blue)"
-error_symbol = "[✗](bold red)"
+success_symbol = '[ ▸](bold yellow)'
+error_symbol = '[ ▸](bold red)'
 disabled = false
 
 [directory.substitutions]
@@ -94,8 +91,11 @@ symbol = "  "
 format = '[$symbol($version)]($style)'
 
 [git_branch]
-symbol = "  "
-format = '[$symbol($branch) ($version)]($style)'
+symbol = " "
+format = '[ $symbol$branch ](bg:yellow fg:black)'
+
+[git_status]
+format = '[$all_status$ahead_behind ](bg:yellow fg:black)'
 
 [git_commit]
 tag_symbol = '  '

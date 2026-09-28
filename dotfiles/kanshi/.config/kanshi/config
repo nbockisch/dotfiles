@@ -1,13 +1,9 @@
-profile docked-hdmi {
-    output "HDMI-A-1" enable position 0,0
-    output "eDP-1" disable
+profile no-external-display {
+    output eDP-1 enable scale 1.75
 }
 
-profile docked-dp {
-    output "DP-1" enable position 0,0
+profile home-office {
     output "eDP-1" disable
-}
-
-profile {
-    output "eDP-1" enable position 0,0 scale 1
+    output "Dell Inc. DELL U3824DW *" mode 3840x1600@59.993999 position 0,0 scale 1
+    output "Dell Inc. DELL S2725QS *" mode 3840x2160@60.000000 transform 90 position 3840,-1515 scale 1
 }
