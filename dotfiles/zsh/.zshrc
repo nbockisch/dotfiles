@@ -40,4 +40,16 @@ setopt SHARE_HISTORY
 ###########
 alias v="nvim"
 
+################
+# DEFAULT APPS #
+################
+export EDITOR="nvim"
+export VISUAL="bat"
+export PAGER="bat"
+export BROWSER="xdg-open"
+
+###################
+# SHELL APP SETUP #
+###################
+eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"

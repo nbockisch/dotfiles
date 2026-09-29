@@ -6,6 +6,10 @@
     - name: Install Arch Packages
       community.general.pacman:
         name:
+          - bat
+          - fzf
+          - neovim
+          - zoxide
           - zsh
         state: present
       when: ansible_facts['distribution'] == 'Archlinux'
