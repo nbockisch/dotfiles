@@ -2,6 +2,7 @@
     "layer": "top",
     "position": "top",
     "height": 28,
+    "output": ["!Samsung Electric Company Odyssey G40B HCRYA11696", "*"],
     "modules-left": ["custom/terminal", "clock", "cpu", "memory", "tray"],
     "modules-center": ["ext/workspaces"],
     "modules-right": ["pulseaudio", "backlight", "bluetooth", "network", "battery"],

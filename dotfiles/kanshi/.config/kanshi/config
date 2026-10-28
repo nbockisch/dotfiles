@@ -7,3 +7,9 @@ profile home-office {
     output "Dell Inc. DELL U3824DW *" mode 3840x1600@59.993999 position 0,0 scale 1
     output "Dell Inc. DELL S2725QS *" mode 3840x2160@60.000000 transform 90 position 3840,-1515 scale 1
 }
+
+profile work {
+    output "eDP-1" disable
+    output "Dell Inc. DELL U3821DW *" mode 3840x1600@59.993999 position 0,0 scale 1
+    output "Samsung Electric Company Odyssey G40B *" mode 1920x1080@60.000000 transform 90 position -1080,-160 scale 1
+}
