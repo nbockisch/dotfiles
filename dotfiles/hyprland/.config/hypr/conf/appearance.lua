@@ -53,6 +53,12 @@ hl.config({
         },
     },
 
+    input = {
+        kb_layout = "us",
+        kb_variant = "altgr-intl",
+        kb_options = "lv3:caps_switch",
+    },
+
     animations = {
         enabled = true,
     },
