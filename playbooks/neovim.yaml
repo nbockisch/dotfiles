@@ -52,6 +52,30 @@
       become_user: aur_builder
       when: ansible_facts['distribution'] == 'Archlinux'
 
+    - name: Set Default Cargo Version
+      ansible.builtin.shell: 'rustup default stable'
+
+    # Cargo always appends /bin to the install path, so the path is /usr/bin
+    - name: Install Cargo Packages
+      community.general.cargo:
+        name: vhdl_ls
+        path: /usr
+        state: latest
+
+    - name: Make the Library Path for vhdl_ls
+      ansible.builtin.file:
+        path: /usr/lib/rust_hdl
+        state: directory
+        owner: root
+        group: root
+
+    - name: Copy vhdl_ls Libraries
+      ansible.builtin.copy:
+        src: '{{ playbook_dir }}/../files/neovim/vhdl_libraries'
+        dest: '/usr/lib/rust_hdl/'
+        owner: root
+        group: root
+
     - name: Apply Neovim Config
       ansible.builtin.shell: 'stow --target=${HOME} neovim'
       args:

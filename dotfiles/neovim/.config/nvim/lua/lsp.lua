@@ -3,6 +3,7 @@ vim.cmd('set completeopt+=noselect') -- Don't automatically fill in the first su
 vim.lsp.enable({
     'lua_ls',
     'rust_analyzer',
+    'vhdl_ls',
 })
 
 vim.diagnostic.config({
